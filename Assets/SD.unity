@@ -1691,6 +1691,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magazine: {fileID: 1105812786}
   magazineSize: 10
+  pistolCooldown: 0.25
+  mgCooldown: 0.1
 --- !u!1 &2055293944
 GameObject:
   m_ObjectHideFlags: 0

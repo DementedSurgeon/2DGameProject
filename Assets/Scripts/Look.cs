@@ -21,7 +21,7 @@ public class Look : MonoBehaviour {
 		Vector2 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
 		Vector2 dirr = transform.position;
 		transform.right = dir - dirr;
-		Debug.Log (dir);
+//		Debug.Log (dir);
 		if (dir.x < 0) {
 			SR.flipY = true;
 			prtSR.flipX = true;
