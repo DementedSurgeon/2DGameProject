@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Look : MonoBehaviour {
 
+	private SpriteRenderer SR;
+	private SpriteRenderer prtSR;
+	private SpriteRenderer chldSR;
+
 	// Use this for initialization
 	void Start () {
-		
+		SR = transform.GetComponent<SpriteRenderer> ();
+		prtSR = transform.parent.GetComponent<SpriteRenderer> ();
+		//chldSR = transform.GetChild (0).GetComponent<SpriteRenderer> ();
 	}
 	
 	// Update is called once per frame
@@ -15,9 +21,17 @@ public class Look : MonoBehaviour {
 		Vector2 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
 		Vector2 dirr = transform.position;
 		transform.right = dir - dirr;
-		//Debug.Log (dir);
+		Debug.Log (dir);
+		if (dir.x < 0) {
+			SR.flipY = true;
+			prtSR.flipX = true;
+			//chldSR.flipY = true;
+		}
+		else if (dir.x > 0) {
+			SR.flipY = false;
+			prtSR.flipX = false;
+			//chldSR.flipX = false;
+		}
 		//Debug.Log (Input.mousePosition.x + "and" + Input.mousePosition.y + "and" + transform.right);
 	}
-
-
 }

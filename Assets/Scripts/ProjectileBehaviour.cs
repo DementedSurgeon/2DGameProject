@@ -5,30 +5,28 @@ using UnityEngine;
 public class ProjectileBehaviour : MonoBehaviour {
 
 	public float speed;
-	public Transform startPos;
-	public Transform firingVec;
 
-	private Vector2 firingPos;
-	private Vector3 fireVec;
+	private Transform startPos;
+	private Vector3 firingPos;
 	private bool isFired = false;
+	private Vector3 resetPoint;
+	private Vector3 borders;
 
 	// Use this for initialization
 	void Start () {
-		
-
+		resetPoint = transform.position;
+	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			isFired = true;
-			firingPos = new Vector2 (startPos.position.x, startPos.position.y);
-			fireVec = new Vector3 (firingVec.position.x, firingVec.position.y,0);
-			transform.position = startPos.position;
-			transform.rotation = startPos.rotation;
-		}
 		if (isFired) {
-			transform.Translate (fireVec * speed * Time.deltaTime);
+			transform.Translate (Vector3.right * speed * Time.deltaTime);
+		}
+		borders = Camera.main.WorldToViewportPoint (transform.position);
+		if (borders.x <= 0 || borders.x >= 1 || borders.y <= 0 || borders.y >= 1) {
+			transform.position = resetPoint;
+			isFired = false;
 		}
 		//Debug.Log (fireVec.position.x);
 	}
@@ -36,5 +34,32 @@ public class ProjectileBehaviour : MonoBehaviour {
 	void Fire()
 	{
 		
+	}
+
+	void OnTriggerEnter2D (Collider2D col)
+	{
+		if (col.gameObject.tag == "Enemy") {
+			Destroy (col.gameObject);
+			transform.position = resetPoint;
+			isFired = false;
+		}
+	}
+
+	public void SetStartPos (Transform tsfm)
+	{
+		startPos = tsfm;
+	}
+
+	public void FireBullet()
+	{
+		isFired = true;
+		firingPos = new Vector3 (startPos.position.x, startPos.position.y,0);
+		transform.position = firingPos;
+		transform.rotation = startPos.rotation;
+	}
+
+	public bool GetIsFired()
+	{
+		return isFired;
 	}
 }
