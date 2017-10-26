@@ -388,7 +388,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.35, y: 0.5}
     oldSize: {x: 0.44, y: 0.6}
     newSize: {x: 0.44, y: 0.6}
     adaptiveTilingThreshold: 0.5
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2edcd24a970100e43bb1e71ae75ef785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 7
+  walkSpeed: 5
   jumpHeight: 7
   jumpCount: 2
   dashCooldown: 2
@@ -628,7 +628,7 @@ GameObject:
   m_Layer: 0
   m_Name: startPos
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -639,7 +639,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 812153191}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.31, y: 0.022, z: 0}
+  m_LocalPosition: {x: 0.3163, y: 0.0194, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1986260176}
@@ -1005,7 +1005,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1409046640}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.053, y: 0.114, z: 0}
+  m_LocalPosition: {x: 0.005000001, y: 0.114, z: 0}
   m_LocalScale: {x: 0.95, y: 0.95, z: 1}
   m_Children: []
   m_Father: {fileID: 376520513}
@@ -1617,7 +1617,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1986260175}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.067, y: 0.151, z: 0}
+  m_LocalPosition: {x: -0.009, y: 0.151, z: 0}
   m_LocalScale: {x: 0.95, y: 0.95, z: 1}
   m_Children:
   - {fileID: 812153192}
@@ -1693,6 +1693,7 @@ MonoBehaviour:
   magazineSize: 10
   pistolCooldown: 0.25
   mgCooldown: 0.1
+  shotgunCooldown: 1
 --- !u!1 &2055293944
 GameObject:
   m_ObjectHideFlags: 0
