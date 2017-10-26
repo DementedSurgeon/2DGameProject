@@ -58,6 +58,17 @@ public class ProjectileBehaviour : MonoBehaviour {
 		transform.rotation = startPos.rotation;
 	}
 
+	public void FireShotty()
+	{
+		Vector3 shotSpread = Random.insideUnitCircle / 3;
+		isFired = true;
+		firingPos = new Vector3 (startPos.position.x, startPos.position.y,0);
+		firingPos = firingPos + shotSpread;
+		transform.position = firingPos;
+		transform.rotation = startPos.rotation;
+
+	}
+
 	public bool GetIsFired()
 	{
 		return isFired;

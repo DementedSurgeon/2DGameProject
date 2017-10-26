@@ -26,12 +26,22 @@ public class ProjPool : MonoBehaviour {
 		
 	}
 
-	public void Find(){
-		for (int i = 0; i < pool.Length; i++) {
-			if (pool [i].GetIsFired () == false) {
-				pool [i].FireBullet ();
-				i = pool.Length;
+	public void Find(int mode){
+		if (mode == 1 || mode == 2) {
+			for (int i = 0; i < pool.Length; i++) {
+				if (pool [i].GetIsFired () == false) {
+					pool [i].FireBullet ();
+					i = pool.Length;
 			
+				}
+			}
+		} else if (mode == 3) {
+			for (int i = 0; i < pool.Length; i++) {
+				if (pool [i].GetIsFired () == false) {
+					pool [i].FireShotty ();
+					i = pool.Length;
+
+				}
 			}
 		}
 	}

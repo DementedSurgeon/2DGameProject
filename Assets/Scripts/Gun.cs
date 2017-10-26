@@ -6,13 +6,19 @@ public class Gun : MonoBehaviour {
 
 	public ProjPool magazine;
 	public int magazineSize;
+
 	public float pistolCooldown;
 	public float mgCooldown;
 	public float shotgunCooldown;
 
+	public float pistolReload;
+	public float mgReload;
+	public float shotgunReload;
+
 	private int maxMagazineSize;
 	private int mode = 1;
 	private float cooldownTimer = 0;
+	private float reloadTimer = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +31,11 @@ public class Gun : MonoBehaviour {
 		if (cooldownTimer > 0) {
 			cooldownTimer -= Time.deltaTime;
 		}
+		if (reloadTimer > 0)
+		{
+			reloadTimer -= Time.deltaTime;
+		}
+
 		if (Input.GetKeyDown (KeyCode.Alpha1)) {
 			mode = 1;
 		}
@@ -35,7 +46,7 @@ public class Gun : MonoBehaviour {
 			mode = 3;
 		}
 
-		if (Input.GetMouseButton (0) && cooldownTimer <= 0) {
+		if (Input.GetMouseButton (0) && cooldownTimer <= 0 && reloadTimer <= 0) {
 			if (mode == 1) {
 				if (Input.GetMouseButtonDown (0)) {
 					FireGun ();
@@ -56,7 +67,7 @@ public class Gun : MonoBehaviour {
 
 	void FireGun(){
 		if (magazineSize > 0) {
-			magazine.Find ();
+			magazine.Find (mode);
 			magazineSize--;
 		}
 	}
@@ -65,7 +76,7 @@ public class Gun : MonoBehaviour {
 	{
 		if (magazineSize >= 5) {
 			for (int i = 0; i < 5; i++) {
-				magazine.Find ();
+				magazine.Find (mode);
 				magazineSize--;
 			}
 		}
@@ -73,6 +84,15 @@ public class Gun : MonoBehaviour {
 
 	void Reload ()
 	{
-		magazineSize = maxMagazineSize;
+		if (reloadTimer <= 0) {
+			magazineSize = maxMagazineSize;
+			if (mode == 1) {
+				reloadTimer = pistolReload;
+			} else if (mode == 2) {
+				reloadTimer = mgReload;
+			} else if (mode == 3) {
+				reloadTimer = shotgunReload;
+			}
+		}
 	}
 }
