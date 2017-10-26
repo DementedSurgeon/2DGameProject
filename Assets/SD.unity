@@ -1690,13 +1690,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   magazine: {fileID: 1105812786}
-  magazineSize: 10
+  magazineSize: 30
   pistolCooldown: 0.25
   mgCooldown: 0.1
   shotgunCooldown: 1
   pistolReload: 1
   mgReload: 2
-  shotgunReload: 0
+  shotgunReload: 2.5
 --- !u!1 &2055293944
 GameObject:
   m_ObjectHideFlags: 0

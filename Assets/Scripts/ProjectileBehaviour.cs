@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ProjectileBehaviour : MonoBehaviour {
 
+	static int counter = 0;
+
 	public float speed;
 
 	private Transform startPos;
@@ -60,14 +62,34 @@ public class ProjectileBehaviour : MonoBehaviour {
 
 	public void FireShotty()
 	{
-		Vector3 shotSpread = Random.insideUnitCircle / 3;
 		isFired = true;
 		firingPos = new Vector3 (startPos.position.x, startPos.position.y,0);
-		firingPos = firingPos + shotSpread;
+		if (counter == 0) {
+			transform.rotation = startPos.rotation;
+			Debug.Log ("1");
+		}
+		else if (counter == 1) {
+			transform.rotation = startPos.rotation * Quaternion.Euler(0,0,5);
+			Debug.Log ("2");
+		} else if (counter == 2) {
+			transform.rotation = startPos.rotation * Quaternion.Euler(0,0,10);
+			Debug.Log ("3");
+		}
+		else if (counter == 3) {
+			transform.rotation = startPos.rotation * Quaternion.Euler(0,0,-5);
+			Debug.Log ("4");
+		}
+		else if (counter == 4) {
+			transform.rotation = startPos.rotation * Quaternion.Euler(0,0,-10);
+			Debug.Log ("5");
+		}
 		transform.position = firingPos;
-		transform.rotation = startPos.rotation;
-
+		counter++;
+		if (counter > 4) {
+			counter = 0;
+		}
 	}
+
 
 	public bool GetIsFired()
 	{

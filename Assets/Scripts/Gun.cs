@@ -27,7 +27,6 @@ public class Gun : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (cooldownTimer);
 		if (cooldownTimer > 0) {
 			cooldownTimer -= Time.deltaTime;
 		}
