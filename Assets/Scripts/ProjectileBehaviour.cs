@@ -69,6 +69,7 @@ public class ProjectileBehaviour : MonoBehaviour {
 	public void FireShotty()
 	{
 		spread = gun.GetSpread ();
+		int limit = gun.GetPellets ();
 		isFired = true;
 		firingPos = new Vector3 (startPos.position.x, startPos.position.y,0);
 		Quaternion spreadRot = startPos.rotation * Quaternion.Euler (0, 0, spread * 2);
@@ -95,10 +96,10 @@ public class ProjectileBehaviour : MonoBehaviour {
 		transform.rotation = spreadRot;
 		transform.position = firingPos;
 		counter++;
-		if (counter > spread - 1) {
+		if (counter > limit - 1) {
 			counter = 0;
 		}
-
+		Debug.Log (counter);
 	}
 
 

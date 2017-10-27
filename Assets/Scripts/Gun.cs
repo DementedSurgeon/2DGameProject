@@ -101,11 +101,11 @@ public class Gun : MonoBehaviour {
 
 	void FireShotgun()
 	{
-		if (shotgunClip >= shotgunPellets) {
+		if (shotgunClip > 0) {
 			for (int i = 0; i < shotgunPellets; i++) {
 				magazine.Find (mode);
-				shotgunClip--;
 			}
+			shotgunClip--;
 		}
 	}
 
@@ -143,6 +143,10 @@ public class Gun : MonoBehaviour {
 	public int GetSpread()
 	{
 		return shotgunSpread;
+	}
+	public int GetPellets()
+	{
+		return shotgunPellets;
 	}
 
 	public int GetMagSize()
