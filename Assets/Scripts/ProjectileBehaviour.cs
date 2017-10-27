@@ -7,8 +7,8 @@ public class ProjectileBehaviour : MonoBehaviour {
 	static int counter = 0;
 
 	public float speed;
-	public int spread;
 
+	private int spread;
 	private Transform startPos;
 	private Vector3 firingPos;
 	private bool isFired = false;
@@ -19,8 +19,7 @@ public class ProjectileBehaviour : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		resetPoint = transform.position;
-		gun = GameObject.FindWithTag ("Player").transform.GetChild (1).GetComponent<Gun> ();
-		spread = gun.GetSpread ();
+		//gun = GameObject.FindWithTag ("Player").transform.GetChild (1).GetComponent<Gun> ();
 		if (spread == 0) {
 			spread = 5;
 		}
@@ -40,11 +39,6 @@ public class ProjectileBehaviour : MonoBehaviour {
 		//Debug.Log (fireVec.position.x);
 	}
 
-	void Fire()
-	{
-		
-	}
-
 	void OnTriggerEnter2D (Collider2D col)
 	{
 		if (col.gameObject.tag == "Enemy") {
@@ -59,6 +53,11 @@ public class ProjectileBehaviour : MonoBehaviour {
 		startPos = tsfm;
 	}
 
+	public void SetGun (Gun newGun)
+	{
+		gun = newGun;
+	}
+
 	public void FireBullet()
 	{
 		isFired = true;
@@ -69,6 +68,7 @@ public class ProjectileBehaviour : MonoBehaviour {
 
 	public void FireShotty()
 	{
+		spread = gun.GetSpread ();
 		isFired = true;
 		firingPos = new Vector3 (startPos.position.x, startPos.position.y,0);
 		Quaternion spreadRot = startPos.rotation * Quaternion.Euler (0, 0, spread * 2);
@@ -95,9 +95,10 @@ public class ProjectileBehaviour : MonoBehaviour {
 		transform.rotation = spreadRot;
 		transform.position = firingPos;
 		counter++;
-		if (counter > 9) {
+		if (counter > spread - 1) {
 			counter = 0;
 		}
+
 	}
 
 

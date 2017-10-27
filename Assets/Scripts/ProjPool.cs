@@ -5,8 +5,8 @@ using UnityEngine;
 public class ProjPool : MonoBehaviour {
 
 	public GameObject prefab;
+	public Gun gun;
 	public int ammoPool;
-
 	public Transform startPos;
 
 	private ProjectileBehaviour[] pool;
@@ -18,6 +18,7 @@ public class ProjPool : MonoBehaviour {
 		for (int i = 0; i < pool.Length; i++) {
 			pool [i] = Instantiate (prefab, transform.position, Quaternion.identity, transform).GetComponent<ProjectileBehaviour> ();
 			pool [i].SetStartPos (startPos);
+			pool [i].SetGun (gun);
 		}
 	}
 
