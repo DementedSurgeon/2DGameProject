@@ -101,4 +101,14 @@ public class Gun : MonoBehaviour {
 	{
 		return shotgunPellets;
 	}
+
+	public int GetMagSize()
+	{
+		return magazineSize;
+	}
+
+	public int GetMaxMagSize()
+	{
+		return maxMagazineSize;
+	}
 }
