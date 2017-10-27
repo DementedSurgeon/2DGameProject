@@ -36,13 +36,14 @@ public class ProjectileBehaviour : MonoBehaviour {
 			transform.position = resetPoint;
 			isFired = false;
 		}
-		//Debug.Log (fireVec.position.x);
+	
 	}
 
 	void OnTriggerEnter2D (Collider2D col)
 	{
 		if (col.gameObject.tag == "Enemy") {
-			Destroy (col.gameObject);
+			col.gameObject.GetComponent<Health> ().Hurt (transform.position.x);
+			col.attachedRigidbody.AddForceAtPosition (new Vector2 (50, 50), transform.position);
 			transform.position = resetPoint;
 			isFired = false;
 		}
@@ -64,6 +65,7 @@ public class ProjectileBehaviour : MonoBehaviour {
 		firingPos = new Vector3 (startPos.position.x, startPos.position.y,0);
 		transform.position = firingPos;
 		transform.rotation = startPos.rotation;
+
 	}
 
 	public void FireShotty()
@@ -99,7 +101,7 @@ public class ProjectileBehaviour : MonoBehaviour {
 		if (counter > limit - 1) {
 			counter = 0;
 		}
-		Debug.Log (counter);
+
 	}
 
 

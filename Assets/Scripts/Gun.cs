@@ -30,6 +30,7 @@ public class Gun : MonoBehaviour {
 	public int shotgunClip;
 	private int shotgunClipSize;
 	public int shotgunSpread;
+	[Range(3,10)]
 	public int shotgunPellets;
 
 

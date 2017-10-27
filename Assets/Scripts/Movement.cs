@@ -38,7 +38,7 @@ public class Movement : MonoBehaviour {
 		if (Input.GetKey (KeyCode.A) && boundsMin.x > 0) {
 			rb2d.velocity = new Vector2 (-1 * walkSpeed, rb2d.velocity.y);
 		} else if (Input.GetKeyUp (KeyCode.A) || boundsMax.x >= 1) {
-			Debug.Log (boundsMax.x);
+			//Debug.Log (boundsMax.x);
 			rb2d.velocity = new Vector2 (0, rb2d.velocity.y);
 		}
 

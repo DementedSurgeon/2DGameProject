@@ -8,6 +8,9 @@ public class Look : MonoBehaviour {
 	private SpriteRenderer prtSR;
 	private SpriteRenderer chldSR;
 
+	private Vector2 dir;
+	private Vector2 dirr;
+
 	// Use this for initialization
 	void Start () {
 		SR = transform.GetComponent<SpriteRenderer> ();
@@ -18,8 +21,8 @@ public class Look : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Vector3 mousePos = new Vector3 (Input.mousePosition.x, Input.mousePosition.y,0);
-		Vector2 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-		Vector2 dirr = transform.position;
+		dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+		dirr = transform.position;
 		transform.right = dir - dirr;
 //		Debug.Log (dir);
 		if (dir.x < 0) {
@@ -33,5 +36,10 @@ public class Look : MonoBehaviour {
 			//chldSR.flipX = false;
 		}
 		//Debug.Log (Input.mousePosition.x + "and" + Input.mousePosition.y + "and" + transform.right);
+	}
+
+	public float GetDirX()
+	{
+		return dir.x;
 	}
 }
