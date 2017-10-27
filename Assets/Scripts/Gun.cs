@@ -11,6 +11,18 @@ public class Gun : MonoBehaviour {
 	public float mgCooldown;
 	public float shotgunCooldown;
 
+	public int pistolAmmoPool;
+	public int pistolClip;
+	private int pistolClipSize;
+
+	public int mgAmmoPool;
+	public int mgClip;
+	private int mgClipSize;
+
+	public int shotgunAmmoPool;
+	public int shotgunClip;
+	private int shotgunClipSize;
+
 	public float pistolReload;
 	public float mgReload;
 	public float shotgunReload;
@@ -25,6 +37,9 @@ public class Gun : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		maxMagazineSize = magazineSize;
+		pistolClipSize = pistolClip;
+		mgClipSize = mgClip;
+		shotgunClipSize = shotgunClip;
 	}
 	
 	// Update is called once per frame
@@ -66,19 +81,28 @@ public class Gun : MonoBehaviour {
 		}
 	}
 
-	void FireGun(){
-		if (magazineSize > 0) {
-			magazine.Find (mode);
-			magazineSize--;
+	void FireGun()
+	{
+		if (mode == 1) {
+			if (pistolClip > 0) {
+				magazine.Find (mode);
+				pistolClip--;
+			}
+		} else if (mode == 2) {
+			if (mgClip > 0) {
+				magazine.Find (mode);
+				mgClip--;
+			}
 		}
 	}
 
+
 	void FireShotgun()
 	{
-		if (magazineSize >= shotgunPellets) {
+		if (shotgunClip >= shotgunPellets) {
 			for (int i = 0; i < shotgunPellets; i++) {
 				magazine.Find (mode);
-				magazineSize--;
+				shotgunClip--;
 			}
 		}
 	}
@@ -86,13 +110,30 @@ public class Gun : MonoBehaviour {
 	void Reload ()
 	{
 		if (reloadTimer <= 0) {
-			magazineSize = maxMagazineSize;
-			if (mode == 1) {
+			if (mode == 1 && pistolAmmoPool > 0) {
 				reloadTimer = pistolReload;
-			} else if (mode == 2) {
+				pistolAmmoPool = pistolAmmoPool - (pistolClipSize - pistolClip);
+				pistolClip = pistolClipSize;
+				if (pistolAmmoPool < 0) {
+					pistolClip += pistolAmmoPool;
+					pistolAmmoPool = 0;
+				}
+			} else if (mode == 2 && mgAmmoPool > 0) {
 				reloadTimer = mgReload;
-			} else if (mode == 3) {
+				mgAmmoPool = mgAmmoPool - (mgClipSize - mgClip);
+				mgClip = mgClipSize;
+				if (mgAmmoPool < 0) {
+					mgClip += mgAmmoPool;
+					mgAmmoPool = 0;
+				}
+			} else if (mode == 3 && shotgunAmmoPool > 0) {
 				reloadTimer = shotgunReload;
+				shotgunAmmoPool = shotgunAmmoPool - (shotgunClipSize - shotgunClip);
+				shotgunClip = shotgunClipSize;
+				if (shotgunAmmoPool < 0) {
+					shotgunClip += shotgunAmmoPool;
+					shotgunAmmoPool = 0;
+				}
 			}
 		}
 	}

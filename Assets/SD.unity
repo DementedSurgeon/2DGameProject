@@ -1876,6 +1876,12 @@ MonoBehaviour:
   pistolCooldown: 0.25
   mgCooldown: 0.1
   shotgunCooldown: 1
+  pistolAmmoPool: 30
+  pistolClip: 10
+  mgAmmoPool: 30
+  mgClip: 20
+  shotgunAmmoPool: 15
+  shotgunClip: 5
   pistolReload: 1
   mgReload: 2
   shotgunReload: 2.5
