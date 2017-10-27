@@ -347,8 +347,8 @@ GameObject:
   - component: {fileID: 376520515}
   - component: {fileID: 376520516}
   m_Layer: 0
-  m_Name: New Sprite
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1697,6 +1697,7 @@ MonoBehaviour:
   pistolReload: 1
   mgReload: 2
   shotgunReload: 2.5
+  shotgunPellets: 2
 --- !u!1 &2055293944
 GameObject:
   m_ObjectHideFlags: 0

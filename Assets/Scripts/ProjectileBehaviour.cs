@@ -7,16 +7,23 @@ public class ProjectileBehaviour : MonoBehaviour {
 	static int counter = 0;
 
 	public float speed;
+	public int spread;
 
 	private Transform startPos;
 	private Vector3 firingPos;
 	private bool isFired = false;
 	private Vector3 resetPoint;
 	private Vector3 borders;
+	private Gun gun;
 
 	// Use this for initialization
 	void Start () {
 		resetPoint = transform.position;
+		gun = GameObject.FindWithTag ("Player").transform.GetChild (1).GetComponent<Gun> ();
+		spread = gun.GetSpread ();
+		if (spread == 0) {
+			spread = 5;
+		}
 	
 	}
 	
@@ -64,7 +71,9 @@ public class ProjectileBehaviour : MonoBehaviour {
 	{
 		isFired = true;
 		firingPos = new Vector3 (startPos.position.x, startPos.position.y,0);
-		if (counter == 0) {
+		Quaternion spreadRot = startPos.rotation * Quaternion.Euler (0, 0, spread * 2);
+		spreadRot = spreadRot * Quaternion.Euler (0, 0, (-1 * spread * counter)); 
+		/*if (counter == 0) {
 			transform.rotation = startPos.rotation;
 			Debug.Log ("1");
 		}
@@ -82,10 +91,11 @@ public class ProjectileBehaviour : MonoBehaviour {
 		else if (counter == 4) {
 			transform.rotation = startPos.rotation * Quaternion.Euler(0,0,-10);
 			Debug.Log ("5");
-		}
+		}*/
+		transform.rotation = spreadRot;
 		transform.position = firingPos;
 		counter++;
-		if (counter > 4) {
+		if (counter > 9) {
 			counter = 0;
 		}
 	}

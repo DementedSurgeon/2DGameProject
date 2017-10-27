@@ -15,6 +15,8 @@ public class Gun : MonoBehaviour {
 	public float mgReload;
 	public float shotgunReload;
 
+	public int shotgunPellets;
+
 	private int maxMagazineSize;
 	private int mode = 1;
 	private float cooldownTimer = 0;
@@ -73,8 +75,8 @@ public class Gun : MonoBehaviour {
 
 	void FireShotgun()
 	{
-		if (magazineSize >= 5) {
-			for (int i = 0; i < 5; i++) {
+		if (magazineSize >= shotgunPellets) {
+			for (int i = 0; i < shotgunPellets; i++) {
 				magazine.Find (mode);
 				magazineSize--;
 			}
@@ -93,5 +95,10 @@ public class Gun : MonoBehaviour {
 				reloadTimer = shotgunReload;
 			}
 		}
+	}
+
+	public int GetSpread()
+	{
+		return shotgunPellets;
 	}
 }
