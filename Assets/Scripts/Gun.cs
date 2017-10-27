@@ -1,42 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class Gun : MonoBehaviour {
 
+	[Header("Ammo Pool")]
 	public ProjPool magazine;
-	public int magazineSize;
 
+	[Space(10)]
+	[Header("Pistol Stats")]
+	public float pistolReload;
 	public float pistolCooldown;
-	public float mgCooldown;
-	public float shotgunCooldown;
-
 	public int pistolAmmoPool;
 	public int pistolClip;
 	private int pistolClipSize;
-
+	[Space(10)]
+	[Header("MG Stats")]
+	public float mgReload;
+	public float mgCooldown;
 	public int mgAmmoPool;
 	public int mgClip;
 	private int mgClipSize;
-
+	[Space(10)]
+	[Header("Shotgun Stats")]
+	public float shotgunReload;
+	public float shotgunCooldown;
 	public int shotgunAmmoPool;
 	public int shotgunClip;
 	private int shotgunClipSize;
-
-	public float pistolReload;
-	public float mgReload;
-	public float shotgunReload;
-
+	public int shotgunSpread;
 	public int shotgunPellets;
 
-	private int maxMagazineSize;
+
 	private int mode = 1;
 	private float cooldownTimer = 0;
 	private float reloadTimer = 0;
 
 	// Use this for initialization
 	void Start () {
-		maxMagazineSize = magazineSize;
 		pistolClipSize = pistolClip;
 		mgClipSize = mgClip;
 		shotgunClipSize = shotgunClip;
@@ -140,16 +142,33 @@ public class Gun : MonoBehaviour {
 
 	public int GetSpread()
 	{
-		return shotgunPellets;
+		return shotgunSpread;
 	}
 
 	public int GetMagSize()
 	{
+		int magazineSize = 0;
+		if (mode == 1) {
+			magazineSize = pistolClip;
+		} else if (mode == 2) {
+			magazineSize = mgClip;
+		} else if (mode == 3) {
+			magazineSize = shotgunClip;
+		}
+
 		return magazineSize;
 	}
 
 	public int GetMaxMagSize()
 	{
+		int maxMagazineSize = 0;
+		if (mode == 1) {
+			maxMagazineSize = pistolAmmoPool;
+		} else if (mode == 2) {
+			maxMagazineSize = mgAmmoPool;
+		} else if (mode == 3) {
+			maxMagazineSize = shotgunAmmoPool;
+		}
 		return maxMagazineSize;
 	}
 }

@@ -1872,19 +1872,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   magazine: {fileID: 1105812786}
-  magazineSize: 30
+  pistolReload: 1
   pistolCooldown: 0.25
-  mgCooldown: 0.1
-  shotgunCooldown: 1
   pistolAmmoPool: 30
   pistolClip: 10
+  mgReload: 2
+  mgCooldown: 0.1
   mgAmmoPool: 30
   mgClip: 20
-  shotgunAmmoPool: 15
-  shotgunClip: 5
-  pistolReload: 1
-  mgReload: 2
   shotgunReload: 2.5
+  shotgunCooldown: 1
+  shotgunAmmoPool: 200
+  shotgunClip: 5
+  shotgunSpread: 5
   shotgunPellets: 5
 --- !u!1 &2055293944
 GameObject:
