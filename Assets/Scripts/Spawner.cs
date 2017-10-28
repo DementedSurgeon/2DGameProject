@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviour {
 	public GameObject prefab;
 	public int spawnCount;
 	public Transform target;
+	public ProjPool enemyProjPool;
 
 	private float timer = 0;
 	public float timerDelay = 0.5f;
@@ -25,6 +26,7 @@ public class Spawner : MonoBehaviour {
 			badDudes [i] = Instantiate (prefab, transform.position, Quaternion.identity, transform).GetComponentInChildren<EnemyLook> ();
 			badDudes [i].SetTarget (target);
 		}
+
 	}
 	
 	// Update is called once per frame

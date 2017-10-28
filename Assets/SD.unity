@@ -222,6 +222,7 @@ MonoBehaviour:
   prefab: {fileID: 1855467092159736, guid: 234881998645f0c4aac08f7a180616fc, type: 2}
   spawnCount: 100
   target: {fileID: 376520513}
+  enemyProjPool: {fileID: 348927716}
   timerDelay: 0.5
   badDudes: []
 --- !u!4 &112885502
@@ -471,6 +472,68 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &348927715
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4566563842685504, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -20.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566563842685504, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566563842685504, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566563842685504, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566563842685504, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566563842685504, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566563842685504, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566563842685504, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114352027376551802, guid: 8b2f67ddfe9b57644a9dbf56a0085642,
+        type: 2}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 1986260179}
+    - target: {fileID: 114352027376551802, guid: 8b2f67ddfe9b57644a9dbf56a0085642,
+        type: 2}
+      propertyPath: startPos
+      value: 
+      objectReference: {fileID: 812153192}
+    - target: {fileID: 1740035636077136, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
+      propertyPath: m_Name
+      value: EnemyProjPool
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &348927716 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114352027376551802, guid: 8b2f67ddfe9b57644a9dbf56a0085642,
+    type: 2}
+  m_PrefabInternal: {fileID: 348927715}
+  m_Script: {fileID: 11500000, guid: 52158ac6b649cb142bada1d730aedc7f, type: 3}
 --- !u!1 &376520509
 GameObject:
   m_ObjectHideFlags: 0

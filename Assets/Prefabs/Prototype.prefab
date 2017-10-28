@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4130074634634708}
   - component: {fileID: 212386810879076428}
+  - component: {fileID: 114594099456028706}
   - component: {fileID: 114665916646266696}
   m_Layer: 0
   m_Name: NewArmsStanding
@@ -130,6 +131,22 @@ Transform:
   m_Father: {fileID: 4867291239911878}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114594099456028706
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1391798776493154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01349864eb2a96f49a5982181b73a141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magazine: {fileID: 0}
+  reloadTime: 0
+  shotCooldown: 0
+  ammoPool: 10
+  clip: 10
 --- !u!114 &114665916646266696
 MonoBehaviour:
   m_ObjectHideFlags: 1
