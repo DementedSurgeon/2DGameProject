@@ -219,7 +219,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bebed0549b85a9448cd2edba8819187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1930469423361856, guid: 661aecb659464db4ebb58861fbd7ac4d, type: 2}
+  prefab: {fileID: 1855467092159736, guid: 234881998645f0c4aac08f7a180616fc, type: 2}
+  spawnCount: 100
+  target: {fileID: 376520513}
+  timerDelay: 0.5
+  badDudes: []
 --- !u!4 &112885502
 Transform:
   m_ObjectHideFlags: 0
@@ -227,7 +231,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 112885500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.24615547, y: -1.2437713, z: 0}
+  m_LocalPosition: {x: 4.81, y: -6.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -446,7 +450,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 8
   m_TargetDisplay: 0
 --- !u!224 &261350121
 RectTransform:
@@ -752,6 +756,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &681857049
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4566563842685504, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -20.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566563842685504, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566563842685504, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566563842685504, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566563842685504, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566563842685504, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566563842685504, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566563842685504, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114352027376551802, guid: 8b2f67ddfe9b57644a9dbf56a0085642,
+        type: 2}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 1986260179}
+    - target: {fileID: 114352027376551802, guid: 8b2f67ddfe9b57644a9dbf56a0085642,
+        type: 2}
+      propertyPath: startPos
+      value: 
+      objectReference: {fileID: 812153192}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &812153191
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,50 +1009,12 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &1105812785
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1105812787}
-  - component: {fileID: 1105812786}
-  m_Layer: 0
-  m_Name: ProjPool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1105812786
+--- !u!114 &1105812786 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1105812785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
+  m_PrefabParentObject: {fileID: 114352027376551802, guid: 8b2f67ddfe9b57644a9dbf56a0085642,
+    type: 2}
+  m_PrefabInternal: {fileID: 681857049}
   m_Script: {fileID: 11500000, guid: 52158ac6b649cb142bada1d730aedc7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 1072337066377960, guid: 9b53042978da46142acf7328179f39e7, type: 2}
-  gun: {fileID: 1986260179}
-  ammoPool: 30
-  startPos: {fileID: 812153192}
---- !u!4 &1105812787
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1105812785}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.2, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1167517089
 GameObject:
   m_ObjectHideFlags: 0

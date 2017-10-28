@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Look : MonoBehaviour {
+public class EnemyLook : MonoBehaviour {
+
+	private Transform target;
 
 	private SpriteRenderer SR;
 	private SpriteRenderer prtSR;
@@ -17,20 +19,20 @@ public class Look : MonoBehaviour {
 		prtSR = transform.parent.GetComponent<SpriteRenderer> ();
 		//chldSR = transform.GetChild (0).GetComponent<SpriteRenderer> ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
-		dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+
+		dir = new Vector2(target.position.x, target.position.y);
 		dirr = transform.position;
 		transform.right = dir - dirr;
-//		
-		if (dir.x < 0) {
+		//		
+		if (dir.x < dirr.x) {
 			SR.flipY = true;
 			prtSR.flipX = true;
 			//chldSR.flipY = true;
 		}
-		else if (dir.x > 0) {
+		else if (dir.x > dirr.x) {
 			SR.flipY = false;
 			prtSR.flipX = false;
 			//chldSR.flipX = false;
@@ -41,5 +43,10 @@ public class Look : MonoBehaviour {
 	public float GetDirX()
 	{
 		return dir.x;
+	}
+
+	public void SetTarget(Transform newTarget)
+	{
+		target = newTarget;
 	}
 }

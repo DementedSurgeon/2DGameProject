@@ -21,8 +21,6 @@ public class DudeAnim : MonoBehaviour {
 	void Update () {
 		
 		bool crouch = Input.GetKey (KeyCode.S);
-		//bool mFor = Input.GetKey (KeyCode.D);
-		//bool mBack = Input.GetKey (KeyCode.A);
 		bool jumping = Input.GetKeyDown (KeyCode.Space);
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
@@ -32,33 +30,31 @@ public class DudeAnim : MonoBehaviour {
 		if (Input.GetKey (KeyCode.A)) {
 			if (look.GetDirX () > 0) {
 				mBack = true;
+				mFor = false;
 			} else if (look.GetDirX () < 0) {
 				mFor = true;
-			}
-		}
-		if (Input.GetKeyUp (KeyCode.A)) {
-			if (look.GetDirX () > 0) {
 				mBack = false;
-			} else if (look.GetDirX () < 0) {
-				mFor = false;
 			}
 		}
+
 
 		if (Input.GetKey (KeyCode.D)) {
 			if (look.GetDirX () < 0) {
 				mBack = true;
+				mFor = false;
 			} else if (look.GetDirX () > 0) {
 				mFor = true;
-			}
-		}
-		if (Input.GetKeyUp (KeyCode.D)) {
-			if (look.GetDirX () < 0) {
 				mBack = false;
-			} else if (look.GetDirX () > 0) {
-				mFor = false;
 			}
 		}
+
 	
+
+		if (Input.GetKeyUp(KeyCode.A) || (Input.GetKeyUp(KeyCode.D)))
+		{
+			mFor = false;
+			mBack = false;
+		}
 
 		anim.SetBool ("Crouching", crouch);
 		anim.SetBool ("Jumping", jumping);

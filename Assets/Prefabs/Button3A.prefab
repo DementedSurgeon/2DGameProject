@@ -100,8 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc52f6715106e248889091cc15920cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  sinSpeed: 2
+  speed: 3
+  sinArc: 2
+  sinSpeed: 5
 --- !u!114 &114364414829652500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -113,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1772c4abbf54b479f1ff81f3257963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 1
 --- !u!212 &212199178792729140
 SpriteRenderer:
   m_ObjectHideFlags: 1

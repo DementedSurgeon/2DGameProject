@@ -35,14 +35,14 @@ public class Movement : MonoBehaviour {
 		boundsMax = sprt.bounds.max;
 		boundsMin = Camera.main.WorldToViewportPoint (boundsMin);
 		boundsMax = Camera.main.WorldToViewportPoint (boundsMax);
-		if (Input.GetKey (KeyCode.A) && boundsMin.x > 0) {
+		if (Input.GetKey (KeyCode.A) && boundsMin.x > 0.01f) {
 			rb2d.velocity = new Vector2 (-1 * walkSpeed, rb2d.velocity.y);
 		} else if (Input.GetKeyUp (KeyCode.A) || boundsMax.x >= 1) {
 			//Debug.Log (boundsMax.x);
 			rb2d.velocity = new Vector2 (0, rb2d.velocity.y);
 		}
 
-		if (Input.GetKey (KeyCode.D) && boundsMax.x < 1) {
+		if (Input.GetKey (KeyCode.D) && boundsMax.x < 0.99f) {
 			rb2d.velocity = new Vector2 (1 * walkSpeed, rb2d.velocity.y);
 		} else if (Input.GetKeyUp (KeyCode.D) || boundsMin.x < 0) {
 
