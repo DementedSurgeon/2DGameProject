@@ -17,6 +17,16 @@ public class AmmoDisplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		DisplayAmmo ();
+	}
+
+	public void GetGun(Gun newGun)
+	{
+		gun = newGun;
+	}
+
+	public void DisplayAmmo ()
+	{
 		field.text = gun.GetMagSize ().ToString () + "/" + gun.GetMaxMagSize ().ToString();
 	}
 }

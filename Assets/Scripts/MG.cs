@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pistol : Gun {
-
+public class MG : Gun {
 	[Header("Ammo Pool")]
 	private ProjPool magazine;
 
@@ -32,7 +31,7 @@ public class Pistol : Gun {
 		startPos = transform.GetChild(0).GetComponent<Transform> ();
 		//magazine.SetGun (this);
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (cooldownTimer > 0) {
@@ -43,13 +42,12 @@ public class Pistol : Gun {
 			reloadTimer -= Time.deltaTime;
 		}
 
-
 	}
 
 	override public void FireGun()
 	{
 		if (!isEnemy) {
-			if (Input.GetMouseButtonDown (0) && cooldownTimer <= 0 && reloadTimer <= 0) {
+			if (Input.GetMouseButton (0) && cooldownTimer <= 0 && reloadTimer <= 0) {
 				if (clip > 0) {
 					magazine.Find (mode, startPos, spread, spreadReset);
 					clip--;
@@ -62,12 +60,8 @@ public class Pistol : Gun {
 				clip--;
 			}
 			cooldownTimer = shotCooldown;
-			Debug.Log ("EnemyGun Works");
 		}
 	}
-
-
-
 
 	override public void Reload()
 	{

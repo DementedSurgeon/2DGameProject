@@ -14,7 +14,7 @@ public class ProjectileBehaviour : MonoBehaviour {
 	private bool isFired = false;
 	private Vector3 resetPoint;
 	private Vector3 borders;
-	private Gun gun;
+	//private Gun gun;
 
 	// Use this for initialization
 	void Start () {
@@ -54,47 +54,29 @@ public class ProjectileBehaviour : MonoBehaviour {
 		startPos = tsfm;
 	}
 
-	public void SetGun (Gun newGun)
+	/*public void SetGun (Gun newGun)
 	{
 		gun = newGun;
-	}
+	}*/
 
 	public void FireBullet()
 	{
 		isFired = true;
 		firingPos = new Vector3 (startPos.position.x, startPos.position.y,0);
+		//Debug.Log (firingPos);
 		transform.position = firingPos;
 		transform.rotation = startPos.rotation;
 
 	}
 
-	public void FireShotty()
+	public void FireShotty(int newSpread, int newReset)
 	{
-		spread = gun.GetSpread ();
-		int limit = gun.GetPellets ();
+		spread = newSpread;
+		int limit = newReset;
 		isFired = true;
 		firingPos = new Vector3 (startPos.position.x, startPos.position.y,0);
 		Quaternion spreadRot = startPos.rotation * Quaternion.Euler (0, 0, spread * 2);
 		spreadRot = spreadRot * Quaternion.Euler (0, 0, (-1 * spread * counter)); 
-		/*if (counter == 0) {
-			transform.rotation = startPos.rotation;
-			Debug.Log ("1");
-		}
-		else if (counter == 1) {
-			transform.rotation = startPos.rotation * Quaternion.Euler(0,0,5);
-			Debug.Log ("2");
-		} else if (counter == 2) {
-			transform.rotation = startPos.rotation * Quaternion.Euler(0,0,10);
-			Debug.Log ("3");
-		}
-		else if (counter == 3) {
-			transform.rotation = startPos.rotation * Quaternion.Euler(0,0,-5);
-			Debug.Log ("4");
-		}
-		else if (counter == 4) {
-			transform.rotation = startPos.rotation * Quaternion.Euler(0,0,-10);
-			Debug.Log ("5");
-		}*/
 		transform.rotation = spreadRot;
 		transform.position = firingPos;
 		counter++;

@@ -219,8 +219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bebed0549b85a9448cd2edba8819187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1855467092159736, guid: 234881998645f0c4aac08f7a180616fc, type: 2}
-  spawnCount: 100
+  prefab: {fileID: 1320654724222320, guid: 234881998645f0c4aac08f7a180616fc, type: 2}
+  spawnCount: 10
   target: {fileID: 376520513}
   enemyProjPool: {fileID: 348927716}
   timerDelay: 0.5
@@ -237,34 +237,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &155151659
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 155151660}
-  m_Layer: 0
-  m_Name: firingVec
-  m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &155151660
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 155151659}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.021999996, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1986260176}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &158751985
 GameObject:
@@ -515,7 +487,7 @@ Prefab:
         type: 2}
       propertyPath: gun
       value: 
-      objectReference: {fileID: 1986260179}
+      objectReference: {fileID: 0}
     - target: {fileID: 114352027376551802, guid: 8b2f67ddfe9b57644a9dbf56a0085642,
         type: 2}
       propertyPath: startPos
@@ -525,6 +497,17 @@ Prefab:
       propertyPath: m_Name
       value: EnemyProjPool
       objectReference: {fileID: 0}
+    - target: {fileID: 114352027376551802, guid: 8b2f67ddfe9b57644a9dbf56a0085642,
+        type: 2}
+      propertyPath: ammoPool
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114352027376551802, guid: 8b2f67ddfe9b57644a9dbf56a0085642,
+        type: 2}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 1072337066377960, guid: f027b4491979324439d2593a1fd621b2,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
   m_IsPrefabParent: 0
@@ -862,12 +845,17 @@ Prefab:
         type: 2}
       propertyPath: gun
       value: 
-      objectReference: {fileID: 1986260179}
+      objectReference: {fileID: 1986260182}
     - target: {fileID: 114352027376551802, guid: 8b2f67ddfe9b57644a9dbf56a0085642,
         type: 2}
       propertyPath: startPos
       value: 
       objectReference: {fileID: 812153192}
+    - target: {fileID: 114352027376551802, guid: 8b2f67ddfe9b57644a9dbf56a0085642,
+        type: 2}
+      propertyPath: display
+      value: 
+      objectReference: {fileID: 1965540788}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b2f67ddfe9b57644a9dbf56a0085642, type: 2}
   m_IsPrefabParent: 0
@@ -893,7 +881,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 812153191}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3163, y: 0.0194, z: 0}
+  m_LocalPosition: {x: 0.343, y: 0.0194, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1986260176}
@@ -1895,7 +1883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d39d9e509f3f04ea03f9b7647e0066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 1986260179}
+  gun: {fileID: 0}
 --- !u!1 &1986260175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1906,6 +1894,9 @@ GameObject:
   - component: {fileID: 1986260176}
   - component: {fileID: 1986260177}
   - component: {fileID: 1986260178}
+  - component: {fileID: 1986260182}
+  - component: {fileID: 1986260180}
+  - component: {fileID: 1986260181}
   - component: {fileID: 1986260179}
   m_Layer: 0
   m_Name: NewArmsStanding
@@ -1925,7 +1916,6 @@ Transform:
   m_LocalScale: {x: 0.95, y: 0.95, z: 1}
   m_Children:
   - {fileID: 812153192}
-  - {fileID: 155151660}
   m_Father: {fileID: 376520513}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1990,24 +1980,73 @@ MonoBehaviour:
   m_GameObject: {fileID: 1986260175}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cc633dc661a2ec4a84cca2f3533f5e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 656c9ae5662a0e24d8fc1c379bf2bb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magazine: {fileID: 1105812786}
-  pistolReload: 1
-  pistolCooldown: 0.25
-  pistolAmmoPool: 30
-  pistolClip: 10
-  mgReload: 2
-  mgCooldown: 0.1
-  mgAmmoPool: 30
-  mgClip: 20
-  shotgunReload: 2.5
-  shotgunCooldown: 1
-  shotgunAmmoPool: 200
-  shotgunClip: 5
-  shotgunSpread: 2
-  shotgunPellets: 7
+  weaponry:
+  - {fileID: 1986260181}
+  - {fileID: 1986260180}
+  - {fileID: 1986260182}
+  display: {fileID: 1965540788}
+  ammoPool: {fileID: 1105812786}
+  isEnemy: 0
+  usesVector: 0
+  triggerVector: {x: 0, y: 0}
+  timerDelay: 0
+--- !u!114 &1986260180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1986260175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36366065143e5334f80ca20e84f95de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnemy: 0
+  reloadTime: 0
+  shotCooldown: 0
+  ammoPool: 100
+  clip: 50
+  pellets: 3
+  spread: 3
+--- !u!114 &1986260181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1986260175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01349864eb2a96f49a5982181b73a141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnemy: 0
+  reloadTime: 0
+  shotCooldown: 0
+  ammoPool: 100
+  clip: 100
+  spreadReset: 3
+  spread: 3
+--- !u!114 &1986260182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1986260175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f338e3a493c36643b35e2b57c8a5c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnemy: 0
+  reloadTime: 0
+  shotCooldown: 0.05
+  ammoPool: 200
+  clip: 200
+  spreadReset: 3
+  spread: 3
 --- !u!1 &2055293944
 GameObject:
   m_ObjectHideFlags: 0

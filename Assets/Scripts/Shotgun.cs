@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pistol : Gun {
+public class Shotgun : Gun {
 
 	[Header("Ammo Pool")]
 	private ProjPool magazine;
@@ -16,7 +16,7 @@ public class Pistol : Gun {
 	public int ammoPool;
 	public int clip;
 	[Range(3,10)]
-	public int spreadReset = 3;
+	public int pellets = 3;
 	[Range(3,10)]
 	public int spread = 3;
 	private int clipSize;
@@ -32,7 +32,7 @@ public class Pistol : Gun {
 		startPos = transform.GetChild(0).GetComponent<Transform> ();
 		//magazine.SetGun (this);
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (cooldownTimer > 0) {
@@ -51,23 +51,24 @@ public class Pistol : Gun {
 		if (!isEnemy) {
 			if (Input.GetMouseButtonDown (0) && cooldownTimer <= 0 && reloadTimer <= 0) {
 				if (clip > 0) {
-					magazine.Find (mode, startPos, spread, spreadReset);
+					for (int i = 0; i < pellets; i++) {
+						magazine.Find (mode, startPos, spread, pellets);
+					}
 					clip--;
+					cooldownTimer = shotCooldown;
 				}
-				cooldownTimer = shotCooldown;
 			}
 		} else if (isEnemy) {
 			if (clip > 0) {
-				magazine.Find (mode, startPos, spread, spreadReset);
+				for (int i = 0; i < pellets; i++) {
+					magazine.Find (mode, startPos, spread, pellets);
+				}
 				clip--;
+				cooldownTimer = shotCooldown;
 			}
-			cooldownTimer = shotCooldown;
-			Debug.Log ("EnemyGun Works");
 		}
+
 	}
-
-
-
 
 	override public void Reload()
 	{
@@ -104,6 +105,6 @@ public class Pistol : Gun {
 
 	override public int GetPellets()
 	{
-		return spreadReset;
+		return pellets;
 	}
 }

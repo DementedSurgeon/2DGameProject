@@ -5,7 +5,7 @@ using UnityEngine;
 public class DudeAnim : MonoBehaviour {
 
 	private Animator anim;
-	private Movement move;
+	//private Movement move;
 	private bool grounded = false;
 	private Look look;
 	private bool mFor = false;
@@ -14,7 +14,7 @@ public class DudeAnim : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		anim = gameObject.GetComponent<Animator> ();
-		move = gameObject.GetComponent<Movement> ();
+		//move = gameObject.GetComponent<Movement> ();
 		look = transform.GetChild (1).GetComponent<Look> ();
 	}
 		// Update is called once per frame

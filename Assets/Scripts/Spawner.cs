@@ -25,6 +25,7 @@ public class Spawner : MonoBehaviour {
 		for (int i = 0; i < badDudes.Length; i++) {
 			badDudes [i] = Instantiate (prefab, transform.position, Quaternion.identity, transform).GetComponentInChildren<EnemyLook> ();
 			badDudes [i].SetTarget (target);
+			badDudes [i].gameObject.GetComponent<Arsenal> ().SetAmmoPool (enemyProjPool);
 		}
 
 	}
@@ -43,7 +44,7 @@ public class Spawner : MonoBehaviour {
 				spawnCount--;
 				badDudes [spawnCount].transform.parent.gameObject.SetActive (true);
 				timer = timerDelay;
-				Debug.Log (spawnCount);
+				//Debug.Log (spawnCount);
 			}
 			if (spawnCount == 0) {
 				spawning = false;
