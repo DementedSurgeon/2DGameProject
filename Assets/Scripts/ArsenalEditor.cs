@@ -17,13 +17,15 @@ public class ArsenalEditor : Editor {
 		if (EditorGUI.EndChangeCheck ()) {
 			serializedObject.ApplyModifiedProperties ();
 		}
-
-		SerializedProperty ammo = serializedObject.FindProperty ("ammoPool");
-		EditorGUI.BeginChangeCheck ();
-		EditorGUILayout.PropertyField (ammo, true);
-		if (EditorGUI.EndChangeCheck ()) {
-			serializedObject.ApplyModifiedProperties ();
-		}
+		using (var group3 = new EditorGUILayout.FadeGroupScope (Convert.ToSingle (myScript.isEnemy))) {
+			if (group3.visible == false) {
+				SerializedProperty ammo = serializedObject.FindProperty ("ammoPool");
+				EditorGUI.BeginChangeCheck ();
+				EditorGUILayout.PropertyField (ammo, true);
+				if (EditorGUI.EndChangeCheck ()) {
+					serializedObject.ApplyModifiedProperties ();
+				}
+			}
 
 		myScript.isEnemy = EditorGUILayout.Toggle ("Is Enemy", myScript.isEnemy);
 
@@ -49,5 +51,6 @@ public class ArsenalEditor : Editor {
 		}
 			
 	}
+}
 }
 }

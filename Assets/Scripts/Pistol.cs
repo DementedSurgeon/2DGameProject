@@ -7,7 +7,7 @@ public class Pistol : Gun {
 	[Header("Ammo Pool")]
 	private ProjPool magazine;
 
-	public bool isEnemy = false;
+	private bool isEnemy = false;
 
 	[Space(10)]
 	[Header("Stats")]
@@ -15,10 +15,10 @@ public class Pistol : Gun {
 	public float shotCooldown;
 	public int ammoPool;
 	public int clip;
-	[Range(3,10)]
-	public int spreadReset = 3;
-	[Range(3,10)]
-	public int spread = 3;
+	[Range(1,3)]
+	public int spreadReset = 1;
+	[Range(1,3)]
+	public int spread = 1;
 	private int clipSize;
 
 	private float cooldownTimer = 0;
@@ -105,5 +105,10 @@ public class Pistol : Gun {
 	override public int GetPellets()
 	{
 		return spreadReset;
+	}
+
+	override public void SetUser(bool newUser)
+	{
+		isEnemy = newUser;
 	}
 }

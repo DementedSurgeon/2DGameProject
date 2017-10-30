@@ -6,7 +6,7 @@ public class MG : Gun {
 	[Header("Ammo Pool")]
 	private ProjPool magazine;
 
-	public bool isEnemy = false;
+	private bool isEnemy = false;
 
 	[Space(10)]
 	[Header("Stats")]
@@ -14,9 +14,9 @@ public class MG : Gun {
 	public float shotCooldown;
 	public int ammoPool;
 	public int clip;
-	[Range(3,10)]
+	[Range(3,5)]
 	public int spreadReset = 3;
-	[Range(3,10)]
+	[Range(3,5)]
 	public int spread = 3;
 	private int clipSize;
 
@@ -99,5 +99,10 @@ public class MG : Gun {
 	override public int GetPellets()
 	{
 		return spreadReset;
+	}
+
+	override public void SetUser(bool newUser)
+	{
+		isEnemy = newUser;
 	}
 }

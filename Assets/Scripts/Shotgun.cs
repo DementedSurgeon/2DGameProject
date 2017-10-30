@@ -7,7 +7,7 @@ public class Shotgun : Gun {
 	[Header("Ammo Pool")]
 	private ProjPool magazine;
 
-	public bool isEnemy = false;
+	private bool isEnemy = false;
 
 	[Space(10)]
 	[Header("Stats")]
@@ -106,5 +106,10 @@ public class Shotgun : Gun {
 	override public int GetPellets()
 	{
 		return pellets;
+	}
+
+	override public void SetUser(bool newUser)
+	{
+		isEnemy = newUser;
 	}
 }

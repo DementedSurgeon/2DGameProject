@@ -15,10 +15,12 @@ public class Arsenal : MonoBehaviour {
 	private float timer = 15;
 	private int activeWeapon = 0;
 
+
 	// Use this for initialization
 	void Start () {
 		for (int i = 0; i < weaponry.Length; i++) {
 			weaponry [i].SetProjPool (ammoPool);
+			weaponry [i].SetUser (isEnemy);
 		}
 		if (display != null) {
 			display.GetGun (weaponry [activeWeapon]);

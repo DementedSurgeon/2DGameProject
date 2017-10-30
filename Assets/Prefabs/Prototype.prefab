@@ -156,7 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01349864eb2a96f49a5982181b73a141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnemy: 1
   reloadTime: 0
   shotCooldown: 0
   ammoPool: 100
@@ -174,7 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f338e3a493c36643b35e2b57c8a5c75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnemy: 1
   reloadTime: 0
   shotCooldown: 0
   ammoPool: 100
@@ -193,13 +191,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponry:
-  - {fileID: 114508550328618548}
+  - {fileID: 114322516553437054}
   display: {fileID: 0}
   ammoPool: {fileID: 0}
   isEnemy: 1
   usesVector: 0
   triggerVector: {x: 0, y: 0}
-  timerDelay: 1.5
+  timerDelay: 3
 --- !u!114 &114486298756952320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -211,9 +209,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc52f6715106e248889091cc15920cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  sinArc: 2
-  sinSpeed: 3
+  speed: 5
+  sinArc: 1
+  sinSpeed: 1
+  horizontal: 1
 --- !u!114 &114508550328618548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -225,7 +224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36366065143e5334f80ca20e84f95de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnemy: 1
   reloadTime: 0
   shotCooldown: 0
   ammoPool: 100

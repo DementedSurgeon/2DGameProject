@@ -43,4 +43,9 @@ public class Gun : MonoBehaviour{
 	public virtual void SetProjPool (ProjPool newPool){
 		//code
 	}
+
+	public virtual void SetUser (bool newUser)
+	{
+
+	}
 }

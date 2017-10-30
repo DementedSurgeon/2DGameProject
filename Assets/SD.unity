@@ -232,7 +232,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 112885500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.81, y: -6.72, z: 0}
+  m_LocalPosition: {x: 13.43, y: -6.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2004,7 +2004,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36366065143e5334f80ca20e84f95de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnemy: 0
   reloadTime: 0
   shotCooldown: 0
   ammoPool: 100
@@ -2022,13 +2021,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01349864eb2a96f49a5982181b73a141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnemy: 0
   reloadTime: 0
   shotCooldown: 0
   ammoPool: 100
   clip: 100
   spreadReset: 3
-  spread: 3
+  spread: 2
 --- !u!114 &1986260182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2040,7 +2038,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f338e3a493c36643b35e2b57c8a5c75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnemy: 0
   reloadTime: 0
   shotCooldown: 0.05
   ammoPool: 200
