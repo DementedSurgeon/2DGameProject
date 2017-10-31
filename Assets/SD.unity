@@ -378,9 +378,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b6bb1a16999bf4094c850230b522bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPos: {x: -10, y: 0}
-  endPos: {x: 1, y: 0}
-  topY: -2
+  startPos: {x: -10, y: -10}
+  midPos: {x: 0, y: 0}
+  endPos: {x: 10, y: 10}
+  parabola: 1
   time: 5
 --- !u!212 &226251748
 SpriteRenderer:
