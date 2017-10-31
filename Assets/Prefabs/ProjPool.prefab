@@ -52,6 +52,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1072337066377960, guid: 9b53042978da46142acf7328179f39e7, type: 2}
-  gun: {fileID: 0}
   ammoPool: 30
-  startPos: {fileID: 0}

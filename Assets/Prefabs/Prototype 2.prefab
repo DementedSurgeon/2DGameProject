@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 61529257667811262}
   - component: {fileID: 50995795566186564}
   m_Layer: 0
-  m_Name: Prototype
+  m_Name: Prototype 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -307,7 +307,7 @@ MonoBehaviour:
   endPos: {x: 10, y: -10}
   parabola: 1
   reverseX: 0
-  reverseY: 0
+  reverseY: 1
   time: 5
 --- !u!212 &212458163354414844
 SpriteRenderer:

@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 61529257667811262}
   - component: {fileID: 50995795566186564}
   m_Layer: 0
-  m_Name: Prototype
+  m_Name: Prototype 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -306,7 +306,7 @@ MonoBehaviour:
   midPos: {x: 3, y: 4}
   endPos: {x: 10, y: -10}
   parabola: 1
-  reverseX: 0
+  reverseX: 1
   reverseY: 0
   time: 5
 --- !u!212 &212458163354414844

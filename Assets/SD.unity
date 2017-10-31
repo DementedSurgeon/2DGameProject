@@ -219,11 +219,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bebed0549b85a9448cd2edba8819187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1320654724222320, guid: 234881998645f0c4aac08f7a180616fc, type: 2}
+  prefab:
+  - {fileID: 1320654724222320, guid: 234881998645f0c4aac08f7a180616fc, type: 2}
+  - {fileID: 1320654724222320, guid: ea64898bce5079245a37be5d432bef19, type: 2}
+  - {fileID: 1320654724222320, guid: 3ff127137f067fa449c5c507ac52cedb, type: 2}
+  - {fileID: 1320654724222320, guid: 5215b64f4e8ef2b4a9a2d689d004d187, type: 2}
   spawnCount: 10
   target: {fileID: 376520513}
   enemyProjPool: {fileID: 348927716}
   timerDelay: 0.5
+  globalTimerDelay: 5
   badDudes: []
 --- !u!4 &112885502
 Transform:
@@ -382,7 +387,9 @@ MonoBehaviour:
   midPos: {x: 0, y: 0}
   endPos: {x: 10, y: 10}
   parabola: 1
-  time: 5
+  reverseX: 0
+  reverseY: 0
+  time: 2
 --- !u!212 &226251748
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2096,7 +2103,7 @@ MonoBehaviour:
   shotCooldown: 0
   ammoPool: 100
   clip: 50
-  pellets: 3
+  pellets: 7
   spread: 3
 --- !u!114 &1986260181
 MonoBehaviour:
