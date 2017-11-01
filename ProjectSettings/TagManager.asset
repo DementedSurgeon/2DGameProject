@@ -43,6 +43,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2255492261
+    locked: 0
   - name: PlayingField
     uniqueID: 3955862227
+    locked: 0
+  - name: Crosshair
+    uniqueID: 2668206985
     locked: 0

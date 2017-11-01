@@ -43,6 +43,11 @@ public class Arsenal : MonoBehaviour {
 						Debug.Log ("Arsenal Works");
 					}
 				}
+			} else if (usesVector) {
+				if (Vector2.Distance (transform.position, triggerVector) <= 0.1f) {
+					weaponry [activeWeapon].FireGun ();
+					weaponry [activeWeapon].Reload ();
+				}
 			}
 		}
 

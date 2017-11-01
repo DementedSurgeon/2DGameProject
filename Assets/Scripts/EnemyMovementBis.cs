@@ -21,7 +21,21 @@ public class EnemyMovementBis : MonoBehaviour {
 	private float time1;
 	private float time2;
 
+	private SpriteRenderer sprt;
+
 	// Use this for initialization
+
+	public void Initialize(PatronData data)
+	{
+		startPos = data.startPos;
+		midPos = data.midPos;
+		endPos = data.endPos;
+		parabola = data.parabola;
+		reverseX = data.reverseX;
+		reverseY = data.reverseY;
+		time = data.time;
+	}
+
 	void Start () {
 		transform.position = new Vector3 (startPos.x, startPos.y, 0);
 		Vector2 temp =  endPos - startPos;
@@ -45,6 +59,8 @@ public class EnemyMovementBis : MonoBehaviour {
 		if (reverseY) {
 			ReverseY ();
 		}
+
+		sprt = gameObject.GetComponent<SpriteRenderer> ();
 	}
 
 	
@@ -113,5 +129,12 @@ public class EnemyMovementBis : MonoBehaviour {
 	{
 		transform.position = new Vector3 (startPos.x, startPos.y, 0);
 		gameObject.SetActive (false);
+	}
+
+	void OnTriggerEnter2D (Collider2D col)
+	{	
+		if (col.gameObject.tag == "Terrain") {
+			sprt.sortingOrder = (col.gameObject.GetComponent<SpriteRenderer> ().sortingOrder) + 4;
+		}
 	}
 }
