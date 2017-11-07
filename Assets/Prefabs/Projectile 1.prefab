@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114416676464899152}
   - component: {fileID: 50333267689339312}
   - component: {fileID: 60508610443048606}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Projectile 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1072337066377960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.922, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -135,7 +135,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -339105069
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 4cf97907f1cb4d54190c9dfb381ee3ae, type: 3}
   m_Color: {r: 1, g: 0.93103445, b: 0, a: 1}

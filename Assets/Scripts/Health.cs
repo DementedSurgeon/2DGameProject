@@ -16,7 +16,7 @@ public class Health : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (health <= 0) {
-			Destroy (gameObject);
+			gameObject.SetActive (false);
 		}
 	}
 

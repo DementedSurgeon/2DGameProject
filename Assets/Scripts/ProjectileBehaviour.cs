@@ -41,7 +41,7 @@ public class ProjectileBehaviour : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D col)
 	{
-		if (col.gameObject.tag == "Enemy") {
+		if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "Player") {
 			col.gameObject.GetComponent<Health> ().Hurt (transform.position.x);
 			col.attachedRigidbody.AddForceAtPosition (new Vector2 (50, 50), transform.position);
 			transform.position = resetPoint;

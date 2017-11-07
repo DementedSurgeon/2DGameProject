@@ -14,7 +14,6 @@ public class Spawner : MonoBehaviour {
 	public float globalTimerDelay;
 	private bool spawning = false;
 	private EnemyMovementBis[] badDudes; 
-	private PatronData ptrdt;
 	private PatronController ptr;
 
 
@@ -27,16 +26,17 @@ public class Spawner : MonoBehaviour {
 		}
 		badDudes = new EnemyMovementBis[spawnCount];
 
-		PatronData data = ptr.GetRandomData ();
+		//PatronData data = ptr.GetRandomData ();
 
 		for (int i = 0; i < badDudes.Length; i++) {
 			badDudes [i] = Instantiate (prefab, transform.position, Quaternion.identity, transform).GetComponent<EnemyMovementBis> ();
-			badDudes [i].Initialize (data);
+			badDudes [i].SetPatternOne (ptr.GetRandomData());
+			badDudes [i].SetPatternTwo (ptr.GetRandomData());
 			badDudes [i].GetComponentInChildren<EnemyLook>().SetTarget(target);
 			badDudes [i].GetComponentInChildren<Arsenal>().SetAmmoPool (enemyProjPool);
 
-			if ((i + 1) % 4 == 0)
-				data = ptr.GetRandomData ();		
+			/*if ((i + 1) % 4 == 0)
+				data = ptr.GetRandomData ();	*/	
 
 		}
 	}

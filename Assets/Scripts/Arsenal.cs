@@ -11,7 +11,7 @@ public class Arsenal : MonoBehaviour {
 	public bool isEnemy = false;
 	public bool usesVector = false;
 	public Vector2 triggerVector;
-	public float timerDelay;
+	public float timerDelay = 0;
 	private float timer = 15;
 	private int activeWeapon = 0;
 

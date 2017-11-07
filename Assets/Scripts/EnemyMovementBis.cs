@@ -21,6 +21,12 @@ public class EnemyMovementBis : MonoBehaviour {
 	private float time1;
 	private float time2;
 
+	private float switchTimer;
+
+	private int counter = 0;
+
+	private PatronData[] ptrndt = new PatronData[2];
+
 	private SpriteRenderer sprt;
 
 	// Use this for initialization
@@ -34,9 +40,6 @@ public class EnemyMovementBis : MonoBehaviour {
 		reverseX = data.reverseX;
 		reverseY = data.reverseY;
 		time = data.time;
-	}
-
-	void Start () {
 		transform.position = new Vector3 (startPos.x, startPos.y, 0);
 		Vector2 temp =  endPos - startPos;
 		if (parabola) {
@@ -50,7 +53,7 @@ public class EnemyMovementBis : MonoBehaviour {
 		} else if (!parabola) {
 			verticalSpeed = temp.y / time;
 		}
-		
+
 		horizontalSpeed = temp.x / time;
 		if (reverseX) {
 			ReverseX ();
@@ -60,7 +63,20 @@ public class EnemyMovementBis : MonoBehaviour {
 			ReverseY ();
 		}
 
+
+		if (parabola)
+			gameObject.GetComponentInChildren<Arsenal> ().timerDelay = time1;
+		else if (!parabola)
+			gameObject.GetComponentInChildren<Arsenal> ().timerDelay = time/2;
+	}
+
+	void Start () {
+		Initialize (ptrndt [0]);
+		counter++;
+
+
 		sprt = gameObject.GetComponent<SpriteRenderer> ();
+
 	}
 
 	
@@ -76,7 +92,17 @@ public class EnemyMovementBis : MonoBehaviour {
 			}
 		}
 
-
+		switchTimer += Time.deltaTime;
+		if (switchTimer >= time) {
+			if (counter == 0) {
+				Initialize (ptrndt [counter]);
+				counter++;
+			} else if (counter == 1) {
+				Initialize (ptrndt [counter]);
+				counter--;
+			}
+			switchTimer = 0;
+		}
 	}
 
 	public void ReverseX()
@@ -129,6 +155,16 @@ public class EnemyMovementBis : MonoBehaviour {
 	{
 		transform.position = new Vector3 (startPos.x, startPos.y, 0);
 		gameObject.SetActive (false);
+	}
+
+	public void SetPatternOne (PatronData pat)
+	{
+		ptrndt [0] = pat;
+	}
+
+	public void SetPatternTwo (PatronData pat)
+	{
+		ptrndt [1] = pat;
 	}
 
 	void OnTriggerEnter2D (Collider2D col)

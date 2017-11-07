@@ -117,7 +117,6 @@ GameObject:
   m_Component:
   - component: {fileID: 16885171}
   - component: {fileID: 16885173}
-  - component: {fileID: 16885172}
   m_Layer: 0
   m_Name: BackgroundBuildings (1)
   m_TagString: Untagged
@@ -138,18 +137,6 @@ Transform:
   m_Father: {fileID: 659578344}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &16885172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 16885170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45c1b8fa8e43dc8479432fc9cc167794, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 5
 --- !u!212 &16885173
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -220,8 +207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bebed0549b85a9448cd2edba8819187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1320654724222320, guid: 234881998645f0c4aac08f7a180616fc, type: 2}
-  spawnCount: 40
+  prefab: {fileID: 1081621493729810, guid: 234881998645f0c4aac08f7a180616fc, type: 2}
+  spawnCount: 5
   target: {fileID: 376520513}
   enemyProjPool: {fileID: 348927716}
   timerDelay: 0.5
@@ -259,7 +246,6 @@ GameObject:
   m_Component:
   - component: {fileID: 158751986}
   - component: {fileID: 158751988}
-  - component: {fileID: 158751987}
   m_Layer: 0
   m_Name: BackgroundHouses
   m_TagString: Untagged
@@ -280,18 +266,6 @@ Transform:
   m_Father: {fileID: 659578344}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &158751987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 158751985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45c1b8fa8e43dc8479432fc9cc167794, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 10
 --- !u!212 &158751988
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -598,6 +572,7 @@ GameObject:
   - component: {fileID: 376520514}
   - component: {fileID: 376520515}
   - component: {fileID: 376520516}
+  - component: {fileID: 376520517}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -751,6 +726,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4c7e3fc5a7111e40b58b2126316e975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &376520517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 376520509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c1772c4abbf54b479f1ff81f3257963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!1 &605781776
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,7 +747,6 @@ GameObject:
   m_Component:
   - component: {fileID: 605781777}
   - component: {fileID: 605781779}
-  - component: {fileID: 605781778}
   m_Layer: 0
   m_Name: BackgroundBuildings
   m_TagString: Untagged
@@ -781,18 +767,6 @@ Transform:
   m_Father: {fileID: 659578344}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &605781778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 605781776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45c1b8fa8e43dc8479432fc9cc167794, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 5
 --- !u!212 &605781779
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -843,6 +817,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 659578344}
+  - component: {fileID: 659578345}
   m_Layer: 0
   m_Name: BG
   m_TagString: Untagged
@@ -869,6 +844,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &659578345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 659578343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1bcc7886725fb45ba9767d5d48e81c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sky:
+  - {fileID: 1876948482}
+  - {fileID: 1425390011}
+  buildings:
+  - {fileID: 605781777}
+  - {fileID: 16885171}
+  houses:
+  - {fileID: 158751986}
+  - {fileID: 1060758758}
+  skyScrollRate: 2
+  buildingScrollRate: 5
+  houseScrollRate: 10
 --- !u!1001 &681857049
 Prefab:
   m_ObjectHideFlags: 0
@@ -1052,7 +1050,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1060758758}
   - component: {fileID: 1060758760}
-  - component: {fileID: 1060758759}
   m_Layer: 0
   m_Name: BackgroundHouses (1)
   m_TagString: Untagged
@@ -1073,18 +1070,6 @@ Transform:
   m_Father: {fileID: 659578344}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1060758759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1060758757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45c1b8fa8e43dc8479432fc9cc167794, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 10
 --- !u!212 &1060758760
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1343,7 +1328,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1425390011}
   - component: {fileID: 1425390013}
-  - component: {fileID: 1425390012}
   m_Layer: 0
   m_Name: BackgroundSky (1)
   m_TagString: Untagged
@@ -1364,18 +1348,6 @@ Transform:
   m_Father: {fileID: 659578344}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1425390012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1425390010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45c1b8fa8e43dc8479432fc9cc167794, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 2
 --- !u!212 &1425390013
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1781,7 +1753,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1876948482}
   - component: {fileID: 1876948484}
-  - component: {fileID: 1876948483}
   m_Layer: 0
   m_Name: BackgroundSky
   m_TagString: Untagged
@@ -1802,18 +1773,6 @@ Transform:
   m_Father: {fileID: 659578344}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1876948483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1876948481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45c1b8fa8e43dc8479432fc9cc167794, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 2
 --- !u!212 &1876948484
 SpriteRenderer:
   m_ObjectHideFlags: 0
