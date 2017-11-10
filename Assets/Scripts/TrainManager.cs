@@ -9,7 +9,7 @@ public class TrainManager : MonoBehaviour {
 
 	private SpriteRenderer[] tR;
 	private Camera cam;
-	private int counter = 5;
+	public int counter = 5;
 	private bool scrolling = true;
 	private bool resetting = true;
 

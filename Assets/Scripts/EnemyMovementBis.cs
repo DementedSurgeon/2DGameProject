@@ -5,14 +5,14 @@ using System;
 
 public class EnemyMovementBis : MonoBehaviour {
 
-	public Vector2 startPos;
-	public Vector2 midPos;
-	public Vector2 endPos;
+	private Vector2 startPos;
+	private Vector2 midPos;
+	private Vector2 endPos;
 
-	public bool parabola = false;
-	public bool reverseX = false;
-	public bool reverseY = false;
-	public float time;
+	private bool parabola = false;
+	private bool reverseX = false;
+	private bool reverseY = false;
+	private float time;
 	private float horizontalSpeed;
 	private float verticalSpeed;
 	private float topY;
@@ -21,7 +21,7 @@ public class EnemyMovementBis : MonoBehaviour {
 	private float time1;
 	private float time2;
 	private float globalTimer;
-	public float globalTimerDelay;
+	private float globalTimerDelay;
 
 	private float switchTimer;
 
@@ -42,7 +42,7 @@ public class EnemyMovementBis : MonoBehaviour {
 		reverseX = data.reverseX;
 		reverseY = data.reverseY;
 		time = data.time;
-		globalTimer = data.globalTimerDelay;
+		//globalTimer = data.globalTimerDelay;
 		transform.position = new Vector3 (startPos.x, startPos.y, 0);
 		Vector2 temp =  endPos - startPos;
 		if (parabola) {
@@ -106,11 +106,11 @@ public class EnemyMovementBis : MonoBehaviour {
 
 		if (switchTimer >= time) {
 			if (counter == 0) {
-				//globalTimer = ptrndt [counter].globalTimerDelay;
+				globalTimer = ptrndt [counter].globalTimerDelay;
 				Initialize (ptrndt [counter]);
 				counter++;
 			} else if (counter == 1) {
-				//globalTimer = ptrndt [counter].globalTimerDelay;
+				globalTimer = ptrndt [counter].globalTimerDelay;
 				Initialize (ptrndt [counter]);
 				counter--;
 

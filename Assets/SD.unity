@@ -2236,6 +2236,7 @@ MonoBehaviour:
   - {fileID: 1644547915}
   - {fileID: 323681641}
   trainScrollRate: 5
+  counter: 10
 --- !u!1001 &2065716416
 Prefab:
   m_ObjectHideFlags: 0

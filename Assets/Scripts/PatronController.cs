@@ -8,8 +8,9 @@ public class PatronController : MonoBehaviour {
 
 	private int counter = 0;
 
-	// Use this for initialization
-	void Start () {
+
+	void Awake()
+	{
 		patrons = new List<PatronData>();
 
 		patrons.Add(new PatronData(new Vector2(-10,3.5f),new Vector2(0,0),new Vector2(10,3.5f),false,false,false,5,2));
@@ -24,6 +25,10 @@ public class PatronController : MonoBehaviour {
 		patrons.Add(new PatronData(new Vector2(-10,5),new Vector2(6,-4),new Vector2(10,5),true,true,false,5,2));
 		patrons.Add(new PatronData(new Vector2(-10,5),new Vector2(6,-4),new Vector2(10,5),true,false,true,2,2));
 		patrons.Add(new PatronData(new Vector2(-10,5),new Vector2(6,-4),new Vector2(10,5),true,true,true,3,2));
+	}
+	// Use this for initialization
+	void Start () {
+		
 	}
 
 	public PatronData GetRandomData()

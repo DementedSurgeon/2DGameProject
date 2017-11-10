@@ -63,7 +63,7 @@ public class Shotgun : Gun {
 				for (int i = 0; i < pellets; i++) {
 					magazine.Find (mode, startPos, spread, pellets);
 				}
-				clip--;
+
 				cooldownTimer = shotCooldown;
 			}
 		}

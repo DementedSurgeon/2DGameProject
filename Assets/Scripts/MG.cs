@@ -57,7 +57,7 @@ public class MG : Gun {
 		} else if (isEnemy) {
 			if (clip > 0) {
 				magazine.Find (mode, startPos, spread, spreadReset);
-				clip--;
+
 			}
 			cooldownTimer = shotCooldown;
 		}

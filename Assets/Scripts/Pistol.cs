@@ -59,7 +59,7 @@ public class Pistol : Gun {
 		} else if (isEnemy) {
 			if (clip > 0) {
 				magazine.Find (mode, startPos, spread, spreadReset);
-				clip--;
+
 			}
 			cooldownTimer = shotCooldown;
 
