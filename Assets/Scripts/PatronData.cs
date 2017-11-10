@@ -12,8 +12,9 @@ public class PatronData
 	public bool reverseX = false;
 	public bool reverseY = false;
 	public float time;
+	public float globalTimerDelay;
 
-	public PatronData(Vector2 startPos, Vector2 midPos, Vector2 endPos, bool parabola, bool reverseX, bool reverseY, float time)
+	public PatronData(Vector2 startPos, Vector2 midPos, Vector2 endPos, bool parabola, bool reverseX, bool reverseY, float time, float globalTimerDelay)
 	{
 		this.startPos = startPos;
 		this.midPos = midPos;
@@ -22,5 +23,6 @@ public class PatronData
 		this.reverseX = reverseX;
 		this.reverseY = reverseY;
 		this.time = time;
+		this.globalTimerDelay = globalTimerDelay;
 	}
 }

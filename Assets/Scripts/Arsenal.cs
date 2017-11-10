@@ -40,7 +40,7 @@ public class Arsenal : MonoBehaviour {
 						weaponry [activeWeapon].FireGun ();
 						weaponry [activeWeapon].Reload ();
 						timer = timerDelay;
-						Debug.Log ("Arsenal Works");
+						Debug.Log (timerDelay);
 					}
 				}
 			} else if (usesVector) {

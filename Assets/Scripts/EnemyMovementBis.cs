@@ -20,6 +20,8 @@ public class EnemyMovementBis : MonoBehaviour {
 	private float toppYB;
 	private float time1;
 	private float time2;
+	private float globalTimer;
+	public float globalTimerDelay;
 
 	private float switchTimer;
 
@@ -40,6 +42,7 @@ public class EnemyMovementBis : MonoBehaviour {
 		reverseX = data.reverseX;
 		reverseY = data.reverseY;
 		time = data.time;
+		globalTimer = data.globalTimerDelay;
 		transform.position = new Vector3 (startPos.x, startPos.y, 0);
 		Vector2 temp =  endPos - startPos;
 		if (parabola) {
@@ -65,9 +68,10 @@ public class EnemyMovementBis : MonoBehaviour {
 
 
 		if (parabola)
-			gameObject.GetComponentInChildren<Arsenal> ().timerDelay = time1;
+			gameObject.GetComponentInChildren<Arsenal> ().timerDelay = time1 + globalTimer;
 		else if (!parabola)
-			gameObject.GetComponentInChildren<Arsenal> ().timerDelay = time/2;
+			gameObject.GetComponentInChildren<Arsenal> ().timerDelay = time/2 + globalTimer;
+		
 	}
 
 	void Start () {
@@ -82,24 +86,34 @@ public class EnemyMovementBis : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		transform.position += Vector3.right * horizontalSpeed * Time.deltaTime;
-		transform.position += Vector3.up * verticalSpeed * Time.deltaTime;
-		if (parabola) {
-			verticalSpeed -= toppYa * Time.deltaTime;
-			if (Vector2.Distance (transform.position, midPos) <= (2/time)) {
-				toppYa = -toppYB;
+
+		if (globalTimer > 0) {
+			globalTimer -= Time.deltaTime;
+		}
+
+		if (globalTimer <= 0) {
+			switchTimer += Time.deltaTime;
+			transform.position += Vector3.right * horizontalSpeed * Time.deltaTime;
+			transform.position += Vector3.up * verticalSpeed * Time.deltaTime;
+			if (parabola) {
+				verticalSpeed -= toppYa * Time.deltaTime;
+				if (Vector2.Distance (transform.position, midPos) <= (2 / time)) {
+					toppYa = -toppYB;
+				}
 			}
 		}
 
-		switchTimer += Time.deltaTime;
+
 		if (switchTimer >= time) {
 			if (counter == 0) {
+				//globalTimer = ptrndt [counter].globalTimerDelay;
 				Initialize (ptrndt [counter]);
 				counter++;
 			} else if (counter == 1) {
+				//globalTimer = ptrndt [counter].globalTimerDelay;
 				Initialize (ptrndt [counter]);
 				counter--;
+
 			}
 			switchTimer = 0;
 		}

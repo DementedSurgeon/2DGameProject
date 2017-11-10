@@ -264,7 +264,8 @@ MonoBehaviour:
   parabola: 0
   reverseX: 0
   reverseY: 0
-  time: 5
+  time: 0
+  globalTimerDelay: 0
 --- !u!114 &114482586299472866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -366,7 +367,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -339105069
   m_SortingLayer: 2
-  m_SortingOrder: 10
+  m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: 58c65c97b0300b14ea25c958d6935f77, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

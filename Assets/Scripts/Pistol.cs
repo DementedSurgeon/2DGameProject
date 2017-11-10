@@ -62,7 +62,7 @@ public class Pistol : Gun {
 				clip--;
 			}
 			cooldownTimer = shotCooldown;
-			Debug.Log ("EnemyGun Works");
+
 		}
 	}
 
