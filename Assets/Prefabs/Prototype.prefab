@@ -287,8 +287,8 @@ MonoBehaviour:
   shotCooldown: 0
   ammoPool: 100
   clip: 1
-  pellets: 4
-  spread: 4
+  pellets: 3
+  spread: 3
 --- !u!114 &114528847798250604
 MonoBehaviour:
   m_ObjectHideFlags: 1
