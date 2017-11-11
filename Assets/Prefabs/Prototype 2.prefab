@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 114412223979276010}
   - component: {fileID: 61699881709638622}
   - component: {fileID: 50523806613638484}
-  - component: {fileID: 114243617956377346}
+  - component: {fileID: 114508919861730778}
   m_Layer: 9
-  m_Name: Prototype
+  m_Name: Prototype 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,17 +183,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.83, y: 0.94}
   m_EdgeRadius: 0
---- !u!114 &114243617956377346
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1081621493729810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcc52eb0449d4c94599e74861bf78096, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114248832449088796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -271,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patternOne: 2
-  patternTwo: 11
+  patternTwo: 3
 --- !u!114 &114482586299472866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -289,6 +278,17 @@ MonoBehaviour:
   clip: 1
   pellets: 4
   spread: 4
+--- !u!114 &114508919861730778
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1081621493729810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc52eb0449d4c94599e74861bf78096, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114528847798250604
 MonoBehaviour:
   m_ObjectHideFlags: 1

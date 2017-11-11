@@ -5,6 +5,9 @@ using System;
 
 public class EnemyMovementBis : MonoBehaviour {
 
+	public int patternOne;
+	public int patternTwo;
+
 	private Vector2 startPos;
 	private Vector2 midPos;
 	private Vector2 endPos;
@@ -28,6 +31,7 @@ public class EnemyMovementBis : MonoBehaviour {
 	private int counter = 0;
 
 	private PatronData[] ptrndt = new PatronData[2];
+	private PatronController patronController;
 
 	private SpriteRenderer sprt;
 
@@ -75,6 +79,9 @@ public class EnemyMovementBis : MonoBehaviour {
 	}
 
 	void Start () {
+		patronController = gameObject.GetComponent<PatronController> ();
+		ptrndt [0] = patronController.GetRandomData (patternOne);
+		ptrndt [1] = patronController.GetRandomData (patternTwo);
 		Initialize (ptrndt [0]);
 		counter++;
 

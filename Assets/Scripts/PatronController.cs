@@ -6,7 +6,7 @@ public class PatronController : MonoBehaviour {
 
 	public List<PatronData> patrons;
 
-	private int counter = 0;
+
 
 
 	void Awake()
@@ -31,16 +31,9 @@ public class PatronController : MonoBehaviour {
 		
 	}
 
-	public PatronData GetRandomData()
+	public PatronData GetRandomData(int pattern)
 	{
-		PatronData temp = patrons[0];
-		if (counter == 0) {
-			temp = patrons [2];
-			counter++;
-		} else if (counter == 1) {
-			temp = patrons [11];
-			counter--;
-		}
+		PatronData temp = patrons[pattern];
 		return temp;
 	}
 }

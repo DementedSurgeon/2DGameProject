@@ -14,13 +14,13 @@ public class Spawner : MonoBehaviour {
 	public float globalTimerDelay;
 	private bool spawning = false;
 	private EnemyMovementBis[] badDudes; 
-	private PatronController ptr;
+
 
 
 	// Use this for initialization
 	void Start ()
 	{
-		ptr = gameObject.GetComponent<PatronController> ();
+		
 		if (spawnCount <= 0) {
 			spawnCount = 1;
 		}
@@ -30,8 +30,6 @@ public class Spawner : MonoBehaviour {
 
 		for (int i = 0; i < badDudes.Length; i++) {
 			badDudes [i] = Instantiate (prefab, transform.position, Quaternion.identity, transform).GetComponent<EnemyMovementBis> ();
-			badDudes [i].SetPatternOne (ptr.GetRandomData());
-			badDudes [i].SetPatternTwo (ptr.GetRandomData());
 			badDudes [i].GetComponentInChildren<EnemyLook>().SetTarget(target);
 			badDudes [i].GetComponentInChildren<Arsenal>().SetAmmoPool (enemyProjPool);
 

@@ -8,15 +8,20 @@ public class Health : MonoBehaviour {
 
 	private Rigidbody2D rgbd;
 
+	public delegate void OnDeath ();
+	public OnDeath Death;
+
 	// Use this for initialization
 	void Start () {
 		rgbd = gameObject.GetComponent<Rigidbody2D> ();
+		Death += Dies;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		
 		if (health <= 0) {
-			gameObject.SetActive (false);
+			Death ();
 		}
 	}
 
@@ -27,5 +32,10 @@ public class Health : MonoBehaviour {
 		} else if (transform.position.x > trs) {
 			rgbd.AddForce (new Vector2(50, 0));
 		}
+	}
+
+	void Dies()
+	{
+		gameObject.SetActive (false);
 	}
 }

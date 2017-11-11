@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 114412223979276010}
   - component: {fileID: 61699881709638622}
   - component: {fileID: 50523806613638484}
-  - component: {fileID: 114243617956377346}
+  - component: {fileID: 114099195329951340}
   m_Layer: 9
-  m_Name: Prototype
+  m_Name: Prototype 3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,7 +183,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.83, y: 0.94}
   m_EdgeRadius: 0
---- !u!114 &114243617956377346
+--- !u!114 &114099195329951340
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -270,8 +270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b6bb1a16999bf4094c850230b522bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patternOne: 2
-  patternTwo: 11
+  patternOne: 6
+  patternTwo: 7
 --- !u!114 &114482586299472866
 MonoBehaviour:
   m_ObjectHideFlags: 1
