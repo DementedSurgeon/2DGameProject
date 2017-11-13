@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour {
 	public int jumpCount;
 	public float dashCooldown;
 	public int dashDistance;
+	public ParticleSystem prs;
 
 	private float dashTimer = 0;
 	private int maxJumpCount;
@@ -57,6 +58,8 @@ public class Movement : MonoBehaviour {
 
 		if (Input.GetKey (KeyCode.A) && Input.GetKeyDown (KeyCode.LeftShift)) {
 			if (dashTimer <= 0) {
+				Instantiate (prs, transform.position, Quaternion.identity);
+				prs.Play();
 				transform.position += Vector3.left * dashDistance;
 				dashTimer = dashCooldown;
 				prtcl.Play ();
@@ -64,6 +67,8 @@ public class Movement : MonoBehaviour {
 		}
 		if (Input.GetKey (KeyCode.D) && Input.GetKeyDown (KeyCode.LeftShift)) {
 			if (dashTimer <= 0) {
+				Instantiate (prs, transform.position, Quaternion.identity);
+				prs.Play();
 				transform.position += Vector3.right * dashDistance;
 				dashTimer = dashCooldown;
 				prtcl.Play ();
