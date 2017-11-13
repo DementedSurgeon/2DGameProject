@@ -38,6 +38,9 @@ public class TrainManager : MonoBehaviour {
 						if (pos.x <= 0) {
 							trains [i].position += new Vector3 ((tR [i].bounds.size.x * 4) - 2, 0, 0);
 							counter--;
+							if (counter % 5 == 0) {
+								trainScrollRate--;
+							}
 						}
 					}
 				}

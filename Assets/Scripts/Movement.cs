@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour {
 	private int maxJumpCount;
 	private Rigidbody2D rb2d;
 	private SpriteRenderer sprt;
+	private ParticleSystem prtcl;
 	private Vector2 boundsMin;
 	private Vector2 boundsMax;
 
@@ -21,6 +22,7 @@ public class Movement : MonoBehaviour {
 	void Start () {
 		rb2d = gameObject.GetComponent<Rigidbody2D> ();
 		sprt = gameObject.GetComponent<SpriteRenderer> ();
+		prtcl = gameObject.GetComponent<ParticleSystem> ();
 		maxJumpCount = jumpCount;
 
 	}
@@ -57,12 +59,14 @@ public class Movement : MonoBehaviour {
 			if (dashTimer <= 0) {
 				transform.position += Vector3.left * dashDistance;
 				dashTimer = dashCooldown;
+				prtcl.Play ();
 			}
 		}
 		if (Input.GetKey (KeyCode.D) && Input.GetKeyDown (KeyCode.LeftShift)) {
 			if (dashTimer <= 0) {
 				transform.position += Vector3.right * dashDistance;
 				dashTimer = dashCooldown;
+				prtcl.Play ();
 			}
 		}
 	}

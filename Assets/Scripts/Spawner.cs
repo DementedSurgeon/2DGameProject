@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
 
-	public GameObject prefab;
+	public GameObject[] prefab;
+	public int[] spawnCounts;
 	public int spawnCount;
 	public Transform target;
 	public ProjPool enemyProjPool;
@@ -29,9 +30,14 @@ public class Spawner : MonoBehaviour {
 		//PatronData data = ptr.GetRandomData ();
 
 		for (int i = 0; i < badDudes.Length; i++) {
-			badDudes [i] = Instantiate (prefab, transform.position, Quaternion.identity, transform).GetComponent<EnemyMovementBis> ();
+			badDudes [i] = Instantiate (prefab[0], transform.position, Quaternion.identity, transform).GetComponent<EnemyMovementBis> ();
 			badDudes [i].GetComponentInChildren<EnemyLook>().SetTarget(target);
 			badDudes [i].GetComponentInChildren<Arsenal>().SetAmmoPool (enemyProjPool);
+			if (i == 0) {
+				
+					badDudes [i].transform.GetChild (2).gameObject.SetActive (true);
+
+			}
 
 			/*if ((i + 1) % 4 == 0)
 				data = ptr.GetRandomData ();	*/	

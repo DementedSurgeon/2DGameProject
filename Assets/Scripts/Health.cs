@@ -21,7 +21,9 @@ public class Health : MonoBehaviour {
 	void Update () {
 		
 		if (health <= 0) {
-			Death ();
+			if (Death != null) {
+				Death ();
+			}
 		}
 	}
 
