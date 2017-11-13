@@ -43,7 +43,7 @@ public class AmmoBox : MonoBehaviour {
 	{
 		if (coll.gameObject.tag == "Terrain") {
 			transform.position = new Vector3 (transform.position.x, coll.collider.bounds.max.y);
-			Debug.Log (sR.bounds.max.y);
+
 		}
 	}
 }

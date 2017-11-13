@@ -20,6 +20,8 @@ public class MG : Gun {
 	public int spread = 3;
 	private int clipSize;
 
+	private string gunName = "MG";
+
 	private float cooldownTimer = 0;
 	private float reloadTimer = 0;
 	private int mode = 3;
@@ -104,5 +106,10 @@ public class MG : Gun {
 	override public void SetUser(bool newUser)
 	{
 		isEnemy = newUser;
+	}
+
+	override public string GetName()
+	{
+		return gunName;
 	}
 }

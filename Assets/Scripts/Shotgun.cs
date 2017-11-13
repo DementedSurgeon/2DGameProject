@@ -21,6 +21,8 @@ public class Shotgun : Gun {
 	public int spread = 3;
 	private int clipSize;
 
+	private string gunName = "Shotgun";
+
 	private float cooldownTimer = 0;
 	private float reloadTimer = 0;
 	private int mode = 3;
@@ -111,5 +113,10 @@ public class Shotgun : Gun {
 	override public void SetUser(bool newUser)
 	{
 		isEnemy = newUser;
+	}
+
+	override public string GetName()
+	{
+		return gunName;
 	}
 }

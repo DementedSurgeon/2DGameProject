@@ -48,4 +48,9 @@ public class Gun : MonoBehaviour{
 	{
 
 	}
+
+	public virtual string GetName ()
+	{
+		return "a";
+	}
 }

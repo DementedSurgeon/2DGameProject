@@ -209,7 +209,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab:
   - {fileID: 1081621493729810, guid: 234881998645f0c4aac08f7a180616fc, type: 2}
-  spawnCounts: 
+  - {fileID: 1081621493729810, guid: 35f6f70f2f8933244b4e8a452ed902d5, type: 2}
+  - {fileID: 1081621493729810, guid: faef2dbc29bd862498420529e999ec33, type: 2}
+  - {fileID: 1081621493729810, guid: c697f49ec63eed6428c84a5dfccc2016, type: 2}
+  spawnCounts: 01000000010000000100000001000000
   spawnCount: 5
   target: {fileID: 376520513}
   enemyProjPool: {fileID: 348927716}
@@ -897,7 +900,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -339105069
   m_SortingLayer: 2
-  m_SortingOrder: 5
+  m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -975,7 +978,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 256778599
+  randomSeed: 1869423089
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -1127,7 +1130,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.3
+      scalar: 0.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1168,7 +1171,7 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1209,7 +1212,7 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1372,7 +1375,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     maxNumParticles: 1000
-    size3D: 0
+    size3D: 1
     rotation3D: 0
     gravityModifier:
       serializedVersion: 2
@@ -1426,7 +1429,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 0.5, y: 0.5, z: 1}
+    m_Scale: {x: 0.5, y: 0.5, z: 0.5}
     placementMode: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
@@ -1438,7 +1441,7 @@ ParticleSystem:
     alignToDirection: 0
     randomDirectionAmount: 0
     sphericalDirectionAmount: 0
-    randomPositionAmount: 0.5
+    randomPositionAmount: 0
     radius:
       value: 1
       mode: 0
