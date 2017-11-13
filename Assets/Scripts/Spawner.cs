@@ -15,22 +15,34 @@ public class Spawner : MonoBehaviour {
 	private bool spawning = false;
 	private EnemyMovementBis[] badDudes; 
 	private int totalSpawns;
-	private int waveCount;
-	private int newSpawnThing;
+	private int totalWaves;
+	private int currentSpawn;
+	private int currentWave;
 	private float globalTimer;
+	public static int yeNewSpawneThinge;
+	private int nextWave;
 
 
 
 	// Use this for initialization
 	void Start ()
 	{
-
-		waveCount = spawnCounts.Length-1;
-		newSpawnThing = spawnCounts [waveCount];
-		
 		for (int c = 0; c < spawnCounts.Length; c++) {
 			totalSpawns += spawnCounts [c];
 		}
+		totalWaves = spawnCounts.Length - 1;
+		currentSpawn = spawnCounts [totalWaves];
+		currentWave = (spawnCounts.Length / 2);
+		for (int c = 0; c < currentWave; c++) {
+			yeNewSpawneThinge += spawnCounts [c]; 
+		}
+		nextWave = yeNewSpawneThinge;
+
+
+
+
+		
+
 
 		badDudes = new EnemyMovementBis[totalSpawns];
 		int temp = 0;
@@ -59,7 +71,7 @@ public class Spawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		Debug.Log (totalSpawns);
+		
 		if (globalTimer > 0) {
 			globalTimer -= Time.deltaTime;
 		}
@@ -67,28 +79,45 @@ public class Spawner : MonoBehaviour {
 		if (timer > 0) {
 			timer -= Time.deltaTime;
 		}
+		if (Input.GetKeyDown (KeyCode.Z)) {
+			Debug.Log (totalSpawns + "tS");
+			Debug.Log (totalWaves + "tW");
+			Debug.Log (currentSpawn + "cS");
+			Debug.Log (currentWave + "cW");
+		}
 		if (Input.GetKeyDown (KeyCode.F)) {
 			spawning = true;
+
+
+		}
+		if (yeNewSpawneThinge == 0 && totalSpawns != 0) {
+				spawning = true;
+				yeNewSpawneThinge = nextWave;
+				currentWave = totalWaves + 1;
+
 		}
 		if (spawning) {
 			if (globalTimer <= 0) {
-			
 				if (timer <= 0) {
 					
-					newSpawnThing--;
+					currentSpawn--;
 					totalSpawns--;
 					badDudes [totalSpawns].gameObject.SetActive (true);
 					timer = timerDelay;
-					if (totalSpawns == 0) {
-						spawning = false;
-					}
-					if (newSpawnThing == 0) {
+					if (currentSpawn == 0) {
+						totalWaves--;
+						currentWave--;
 						globalTimer = globalTimerDelay;
-						if (waveCount > 0) {
-							waveCount--;
-							newSpawnThing = spawnCounts [waveCount];
+						if (totalWaves >= 0) {
+							currentSpawn = spawnCounts [totalWaves];
+						}
+
+						if (currentWave == 0) {
+							spawning = false;
 						}
 					}
+
+
 
 				}
 					

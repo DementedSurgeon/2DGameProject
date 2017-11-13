@@ -212,12 +212,11 @@ MonoBehaviour:
   - {fileID: 1081621493729810, guid: 35f6f70f2f8933244b4e8a452ed902d5, type: 2}
   - {fileID: 1081621493729810, guid: faef2dbc29bd862498420529e999ec33, type: 2}
   - {fileID: 1081621493729810, guid: c697f49ec63eed6428c84a5dfccc2016, type: 2}
-  spawnCounts: 01000000010000000100000001000000
-  spawnCount: 5
+  spawnCounts: 03000000010000000500000002000000
   target: {fileID: 376520513}
   enemyProjPool: {fileID: 348927716}
   timerDelay: 0.5
-  globalTimerDelay: 0
+  globalTimerDelay: 3
 --- !u!4 &112885502
 Transform:
   m_ObjectHideFlags: 0
@@ -827,6 +826,7 @@ MonoBehaviour:
   jumpCount: 2
   dashCooldown: 2
   dashDistance: 5
+  prs: {fileID: 198885016932674310, guid: 13e8474c9b2d93e47a7fefff600f8621, type: 2}
 --- !u!95 &376520515
 Animator:
   serializedVersion: 3
@@ -978,7 +978,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1869423089
+  randomSeed: 1944528544
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -1130,7 +1130,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0.1
       minScalar: 1
       maxCurve:
         serializedVersion: 2

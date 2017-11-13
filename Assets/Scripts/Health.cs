@@ -39,5 +39,6 @@ public class Health : MonoBehaviour {
 	void Dies()
 	{
 		gameObject.SetActive (false);
+		Spawner.yeNewSpawneThinge--;
 	}
 }
