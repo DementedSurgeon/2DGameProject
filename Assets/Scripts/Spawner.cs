@@ -16,27 +16,42 @@ public class Spawner : MonoBehaviour {
 	private EnemyMovementBis[] badDudes; 
 	private int totalSpawns;
 	private int totalWaves;
+	public int waveCount;
 	private int currentSpawn;
 	private int currentWave;
 	private float globalTimer;
 	public static int yeNewSpawneThinge;
 	private int nextWave;
+	private bool validatingWave = false;
 
 
 
 	// Use this for initialization
 	void Start ()
 	{
+		if (spawnCounts.Length % waveCount != 0) {
+			validatingWave = true;
+		}
+		while (validatingWave) {
+			waveCount--;
+			if (spawnCounts.Length % waveCount == 0)
+			{
+				validatingWave = false;
+			}
+		}
 		for (int c = 0; c < spawnCounts.Length; c++) {
 			totalSpawns += spawnCounts [c];
 		}
 		totalWaves = spawnCounts.Length - 1;
 		currentSpawn = spawnCounts [totalWaves];
-		currentWave = (spawnCounts.Length / 2);
-		for (int c = 0; c < currentWave; c++) {
+		currentWave = waveCount;
+		for (int c = totalWaves; c > totalWaves - currentWave; c--) {
 			yeNewSpawneThinge += spawnCounts [c]; 
 		}
-		nextWave = yeNewSpawneThinge;
+		for (int c = currentWave; c > 0; c--) {
+			nextWave += spawnCounts [c]; 
+		}
+
 
 
 
@@ -84,6 +99,7 @@ public class Spawner : MonoBehaviour {
 			Debug.Log (totalWaves + "tW");
 			Debug.Log (currentSpawn + "cS");
 			Debug.Log (currentWave + "cW");
+			Debug.Log (yeNewSpawneThinge + "yO");
 		}
 		if (Input.GetKeyDown (KeyCode.F)) {
 			spawning = true;
@@ -92,9 +108,11 @@ public class Spawner : MonoBehaviour {
 		}
 		if (yeNewSpawneThinge == 0 && totalSpawns != 0) {
 				spawning = true;
-				yeNewSpawneThinge = nextWave;
-				currentWave = totalWaves + 1;
-
+			for (int c = totalWaves; c > totalWaves - currentWave; c--) {
+				yeNewSpawneThinge += spawnCounts [c]; 
+			}
+				currentWave = waveCount;
+				globalTimer = globalTimerDelay;
 		}
 		if (spawning) {
 			if (globalTimer <= 0) {

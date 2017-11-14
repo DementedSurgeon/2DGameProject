@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponry:
-  - {fileID: 114482586299472866}
+  - {fileID: 114388390840183056}
   display: {fileID: 0}
   ammoPool: {fileID: 0}
   isEnemy: 1

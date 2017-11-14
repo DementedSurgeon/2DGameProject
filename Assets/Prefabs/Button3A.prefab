@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50453088198375886}
   - component: {fileID: 114146334816286166}
   - component: {fileID: 114364414829652500}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button3A
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -103,6 +103,7 @@ MonoBehaviour:
   speed: 3
   sinArc: 2
   sinSpeed: 5
+  horizontal: 0
 --- !u!114 &114364414829652500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,7 +146,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -339105069
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: 02845b0d9fed667489be570eb5896704, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
