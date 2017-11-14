@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class AmmoDisplay : MonoBehaviour {
 
 	public Gun gun;
+	public Health health;
 
 	private Text field;
 
@@ -27,6 +28,6 @@ public class AmmoDisplay : MonoBehaviour {
 
 	public void DisplayData ()
 	{
-		field.text = gun.GetMagSize ().ToString () + "/" + gun.GetMaxMagSize ().ToString() + " " + gun.GetName();
+		field.text = gun.GetMagSize ().ToString () + "/" + gun.GetMaxMagSize ().ToString () + " " + gun.GetName () + " " + health.health.ToString() + "/" + health.GetMaxHP ().ToString();
 	}
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour {
 
 	public int health;
+	private int maxHealth;
 
 	private Rigidbody2D rgbd;
 
@@ -13,6 +14,7 @@ public class Health : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		maxHealth = health;
 		rgbd = gameObject.GetComponent<Rigidbody2D> ();
 		Death += Dies;
 	}
@@ -40,5 +42,10 @@ public class Health : MonoBehaviour {
 	{
 		gameObject.SetActive (false);
 		Spawner.yeNewSpawneThinge--;
+	}
+
+	public int GetMaxHP ()
+	{
+		return maxHealth;
 	}
 }
