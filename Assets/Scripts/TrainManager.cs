@@ -6,12 +6,14 @@ public class TrainManager : MonoBehaviour {
 
 	public Transform[] trains;
 	public int trainScrollRate;
+	public Spawner spawner;
 
 	private SpriteRenderer[] tR;
 	private Camera cam;
 	public int counter = 5;
 	private bool scrolling = true;
 	private bool resetting = true;
+	private bool windingDown = false;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +22,7 @@ public class TrainManager : MonoBehaviour {
 		for (int i = 0; i < tR.Length; i++) {
 			tR [i] = trains [i].gameObject.GetComponent<SpriteRenderer> ();
 		}
+		spawner.FinishedSpawn += WindDown;
 	}
 	
 	// Update is called once per frame
@@ -37,9 +40,11 @@ public class TrainManager : MonoBehaviour {
 					if (resetting) {
 						if (pos.x <= 0) {
 							trains [i].position += new Vector3 ((tR [i].bounds.size.x * 4) - 2, 0, 0);
-							counter--;
-							if (counter % 5 == 0) {
-								trainScrollRate--;
+							if (windingDown) {
+								counter--;
+								if (counter % 2 == 0) {
+									trainScrollRate--;
+								}
 							}
 						}
 					}
@@ -51,5 +56,10 @@ public class TrainManager : MonoBehaviour {
 				resetting = false;
 			}
 		}
+	}
+
+	void WindDown ()
+	{
+		windingDown = true;
 	}
 }

@@ -23,7 +23,8 @@ public class Spawner : MonoBehaviour {
 	public static int yeNewSpawneThinge;
 	private int nextWave;
 	private bool validatingWave = false;
-
+	public delegate void OnFinishSpawn();
+	public OnFinishSpawn FinishedSpawn;
 
 
 	// Use this for initialization
@@ -86,6 +87,12 @@ public class Spawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		if (yeNewSpawneThinge == 0 && totalSpawns == 0) {
+			if (FinishedSpawn != null) {
+				FinishedSpawn ();
+				Debug.Log ("Works!");
+			}
+		}
 		
 		if (globalTimer > 0) {
 			globalTimer -= Time.deltaTime;
