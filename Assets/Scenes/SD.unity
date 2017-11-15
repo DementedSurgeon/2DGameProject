@@ -216,12 +216,12 @@ MonoBehaviour:
   - {fileID: 1081621493729810, guid: 35f6f70f2f8933244b4e8a452ed902d5, type: 2}
   - {fileID: 1081621493729810, guid: faef2dbc29bd862498420529e999ec33, type: 2}
   - {fileID: 1081621493729810, guid: c697f49ec63eed6428c84a5dfccc2016, type: 2}
-  spawnCounts: 0700000001000000070000000100000003000000040000000200000002000000
+  spawnCounts: 0200000002000000020000000200000002000000020000000200000002000000
   target: {fileID: 376520513}
   enemyProjPool: {fileID: 348927716}
   timerDelay: 0.5
   globalTimerDelay: 3
-  waveCount: 2
+  waveCount: 7
 --- !u!4 &112885502
 Transform:
   m_ObjectHideFlags: 0
@@ -494,48 +494,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &315317807
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4012194274381232, guid: 661aecb659464db4ebb58861fbd7ac4d, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 2.776
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012194274381232, guid: 661aecb659464db4ebb58861fbd7ac4d, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012194274381232, guid: 661aecb659464db4ebb58861fbd7ac4d, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012194274381232, guid: 661aecb659464db4ebb58861fbd7ac4d, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012194274381232, guid: 661aecb659464db4ebb58861fbd7ac4d, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012194274381232, guid: 661aecb659464db4ebb58861fbd7ac4d, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012194274381232, guid: 661aecb659464db4ebb58861fbd7ac4d, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4012194274381232, guid: 661aecb659464db4ebb58861fbd7ac4d, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 661aecb659464db4ebb58861fbd7ac4d, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &323681640
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,7 +520,7 @@ Transform:
   m_PrefabInternal: {fileID: 2065716416}
   m_GameObject: {fileID: 323681640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.99, y: -2.56, z: 0}
+  m_LocalPosition: {x: 27.5, y: -2.56, z: 0}
   m_LocalScale: {x: 1.9, y: 1.9, z: 1}
   m_Children: []
   m_Father: {fileID: 2055293945}
@@ -1025,7 +983,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1617658953
+  randomSeed: 14496737
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4727,6 +4685,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1336143705}
+  - component: {fileID: 1336143706}
   m_Layer: 0
   m_Name: BossSpawner
   m_TagString: Untagged
@@ -4741,12 +4700,27 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1336143704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.43, y: -6.72, z: 0}
+  m_LocalPosition: {x: 10.8, y: -5.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1336143706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1336143704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae1c7217e9e5fb4480daad144c62d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1930469423361856, guid: 661aecb659464db4ebb58861fbd7ac4d, type: 2}
+  bossLength: 10
+  timerDelay: 1
+  speed: 3
 --- !u!1 &1409046640
 GameObject:
   m_ObjectHideFlags: 0
@@ -5338,7 +5312,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 244.9, y: 3.300003}
+  m_AnchoredPosition: {x: 244.9, y: 3.2999878}
   m_SizeDelta: {x: 236.8, y: 29.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1965540786
@@ -5605,7 +5579,8 @@ MonoBehaviour:
   - {fileID: 1644547915}
   - {fileID: 323681641}
   trainScrollRate: 20
-  counter: 100
+  spawner: {fileID: 112885501}
+  counter: 25
 --- !u!1001 &2065716416
 Prefab:
   m_ObjectHideFlags: 0
@@ -5615,7 +5590,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4491056187894652, guid: c5514a1c1f921054395bf53537616999, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 27.99
+      value: 27.5
       objectReference: {fileID: 0}
     - target: {fileID: 4491056187894652, guid: c5514a1c1f921054395bf53537616999, type: 2}
       propertyPath: m_LocalPosition.y
