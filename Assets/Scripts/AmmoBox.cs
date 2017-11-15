@@ -43,7 +43,9 @@ public class AmmoBox : MonoBehaviour {
 	{
 		if (coll.gameObject.tag == "Terrain") {
 			transform.position = new Vector3 (transform.position.x, coll.collider.bounds.max.y);
-
+			rb2D.isKinematic = true;
+			rb2D.velocity = Vector2.zero;
 		}
 	}
+
 }
