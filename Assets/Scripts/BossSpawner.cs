@@ -21,7 +21,7 @@ public class BossSpawner : MonoBehaviour {
 	void Start () {
 		bossData = new BossPatternData[4];
 		bossData [0] = new BossPatternData (1 * speed, 1, 1, false);
-		bossData [1] = new BossPatternData (-1 * speed, -2, -2, true);
+		bossData [1] = new BossPatternData (-1 * speed, -4, -4, true);
 		bossData [2] = new BossPatternData (1 * speed, 3, 3, false);
 		bossData [3] = new BossPatternData (-1 * speed, -4, -4, true);
 		boss = new BossMovement[bossLength];
