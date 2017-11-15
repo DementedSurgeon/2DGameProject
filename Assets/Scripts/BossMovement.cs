@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class BossMovement : MonoBehaviour {
 
-	public float speed;
-	public float sinArc;
-	public float sinSpeed;
+	float speed;
+	float sinArc;
+	float sinSpeed;
 
-	public bool horizontal;
+	bool horizontal;
 
 	private int reverser = 1;
+	private BossPatternData activePattern;
+	private BossPatternData futurePattern;
 
 	// Use this for initialization
 	void Start () {
-		
+		UpdatePattern ();
 	}
 	
 	// Update is called once per frame
@@ -27,10 +29,12 @@ public class BossMovement : MonoBehaviour {
 			if ((Camera.main.WorldToViewportPoint (transform.position).y) <= 0) {
 				reverser = reverser * -1;
 				transform.position = new Vector3 (transform.position.x, Camera.main.ViewportToWorldPoint (new Vector3 (0, 1, 0)).y, 0);
+				UpdatePattern ();
 
 			} else if ((Camera.main.WorldToViewportPoint (transform.position).y) >= 1) {
 				transform.position = new Vector3 (transform.position.x, Camera.main.ViewportToWorldPoint (new Vector3 (0, 0, 0)).y, 0);
 				reverser = reverser * -1;
+				UpdatePattern ();
 			}
 		} else if (horizontal) {
 			float stuff = (Mathf.Sin (transform.position.x / sinArc)) * reverser;
@@ -40,11 +44,35 @@ public class BossMovement : MonoBehaviour {
 			if ((Camera.main.WorldToViewportPoint (transform.position).x) <= 0) {
 				reverser = reverser * -1;
 				transform.position = new Vector3 (Camera.main.ViewportToWorldPoint (new Vector3 (1, 0, 0)).x, transform.position.y, 0);
+				UpdatePattern ();
 
-			} else if ((Camera.main.WorldToViewportPoint (transform.position).y) >= 1) {
+			} else if ((Camera.main.WorldToViewportPoint (transform.position).x) >= 1) {
 				transform.position = new Vector3 (Camera.main.ViewportToWorldPoint (new Vector3 (0, 0, 0)).x, transform.position.y, 0);
 				reverser = reverser * -1;
+				UpdatePattern ();
 			}
 		}
 	}
+
+	void UpdatePattern()
+	{
+		activePattern = futurePattern;
+		speed = activePattern.speed;
+		sinArc = activePattern.sinArc;
+		sinSpeed = activePattern.sinSpeed;
+		horizontal = activePattern.horizontal;
+	}
+
+
+	public void NextPattern(BossPatternData pattern)
+	{
+		futurePattern = pattern;
+	}
+
+	public BossPatternData GetActivePattern()
+	{
+		return activePattern;
+	}
+
+
 }
