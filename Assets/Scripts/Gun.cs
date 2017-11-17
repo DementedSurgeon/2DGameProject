@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Gun : MonoBehaviour{
-	
+
+	public int ammoPool;
 
 	public virtual void FireGun ()
 	{

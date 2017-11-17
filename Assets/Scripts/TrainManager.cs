@@ -14,6 +14,8 @@ public class TrainManager : MonoBehaviour {
 	private bool scrolling = true;
 	private bool resetting = true;
 	private bool windingDown = false;
+	public delegate void OnScrollFinish();
+	public OnScrollFinish FinishedScroll;
 
 	// Use this for initialization
 	void Start () {
@@ -35,6 +37,9 @@ public class TrainManager : MonoBehaviour {
 					if (i == trains.Length - 1) {
 						if (pos.x <= 1) {
 							scrolling = false;
+							if (FinishedScroll != null) {
+								FinishedScroll ();
+							}
 						}
 					}
 					if (resetting) {
@@ -62,4 +67,6 @@ public class TrainManager : MonoBehaviour {
 	{
 		windingDown = true;
 	}
+
+
 }

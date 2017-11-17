@@ -16,6 +16,9 @@ public class BossSpawner : MonoBehaviour {
 	private int counter = 0;
 	public int speed;
 	private bool doneSpawning = false;
+	public TrainManager tMan;
+	public delegate void MyDelegate();
+	public MyDelegate OnBossDead;
 
 	// Use this for initialization
 	void Start () {
@@ -28,12 +31,15 @@ public class BossSpawner : MonoBehaviour {
 		for (int i = 0; i < boss.Length; i++) {
 			boss [i] = Instantiate (prefab, transform.position, Quaternion.identity, transform).GetComponent<BossMovement> ();
 			boss [i].NextPattern (bossData[activePattern]);
+			if (i == 0) {
+				boss [i].gameObject.GetComponent<SpriteRenderer> ().color = Color.red;
+			}
 		}
 		checks = new bool[bossLength];
 		for (int i = 0; i < boss.Length; i++) {
 			checks [i] = false;
 		}
-		
+		tMan.FinishedScroll += BeginSpawn;
 	}
 	
 	// Update is called once per frame
@@ -63,7 +69,20 @@ public class BossSpawner : MonoBehaviour {
 					checks [i] = true;
 					NextPattern ();
 					for (int c = i + 1; c < boss.Length; c++) {
+						if (c == i + 1) {
+							boss [c].gameObject.GetComponent<SpriteRenderer> ().color = Color.red;
+						}
 						boss[c].NextPattern(bossData[activePattern]);
+					}
+					for (int v = 0; v < checks.Length; v++)
+					{
+						if (checks [v] == false) {
+							v = checks.Length;
+						} else if (v == checks.Length - 1 && checks [v] == true) {
+							if (OnBossDead != null) {
+								OnBossDead ();
+							}
+						}
 					}
 				} 
 			}
@@ -77,5 +96,10 @@ public class BossSpawner : MonoBehaviour {
 		if (activePattern == 4) {
 			activePattern = 0;
 		}
+	}
+
+	void BeginSpawn()
+	{
+		spawning = true;
 	}
 }

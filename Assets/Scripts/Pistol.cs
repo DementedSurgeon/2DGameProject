@@ -13,7 +13,6 @@ public class Pistol : Gun {
 	[Header("Stats")]
 	public float reloadTime;
 	public float shotCooldown;
-	public int ammoPool;
 	public int clip;
 	[Range(1,3)]
 	public int spreadReset = 1;

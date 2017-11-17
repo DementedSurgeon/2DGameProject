@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour {
+public class EnemyHealth : MonoBehaviour {
 
 	public int health;
 	private int maxHealth;
@@ -19,10 +19,10 @@ public class Health : MonoBehaviour {
 		rgbd = gameObject.GetComponent<Rigidbody2D> ();
 		Death += Dies;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 		if (health <= 0) {
 			if (Death != null) {
 				Death ();
@@ -47,6 +47,7 @@ public class Health : MonoBehaviour {
 			Debug.Log ("works");
 		}
 		gameObject.SetActive (false);
+		Spawner.yeNewSpawneThinge--;
 	}
 
 	public int GetMaxHP ()

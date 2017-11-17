@@ -12,7 +12,6 @@ public class MG : Gun {
 	[Header("Stats")]
 	public float reloadTime;
 	public float shotCooldown;
-	public int ammoPool;
 	public int clip;
 	[Range(3,5)]
 	public int spreadReset = 3;

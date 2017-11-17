@@ -13,7 +13,6 @@ public class Shotgun : Gun {
 	[Header("Stats")]
 	public float reloadTime;
 	public float shotCooldown;
-	public int ammoPool;
 	public int clip;
 	[Range(3,10)]
 	public int pellets = 3;
