@@ -25,6 +25,7 @@ public class EnemyMovementBis : MonoBehaviour {
 	private float time2;
 	private float globalTimer;
 	private float globalTimerDelay;
+	private float fireTimer;
 
 	private float switchTimer;
 
@@ -32,6 +33,7 @@ public class EnemyMovementBis : MonoBehaviour {
 
 	private PatronData[] ptrndt = new PatronData[2];
 	private PatronController patronController;
+	private EnemyArsenal arsenal;
 
 	private SpriteRenderer sprt;
 
@@ -46,7 +48,6 @@ public class EnemyMovementBis : MonoBehaviour {
 		reverseX = data.reverseX;
 		reverseY = data.reverseY;
 		time = data.time;
-		//globalTimer = data.globalTimerDelay;
 		transform.position = new Vector3 (startPos.x, startPos.y, 0);
 		Vector2 temp =  endPos - startPos;
 		if (parabola) {
@@ -72,14 +73,15 @@ public class EnemyMovementBis : MonoBehaviour {
 
 
 		if (parabola)
-			gameObject.GetComponentInChildren<Arsenal> ().timerDelay = time1 + globalTimer;
+			fireTimer = time1 + globalTimer;
 		else if (!parabola)
-			gameObject.GetComponentInChildren<Arsenal> ().timerDelay = time/2 + globalTimer;
+			fireTimer = time/2 + globalTimer;
 		
 	}
 
 	void Start () {
 		patronController = gameObject.GetComponent<PatronController> ();
+		arsenal = gameObject.GetComponentInChildren<EnemyArsenal> ();
 		ptrndt [0] = patronController.GetRandomData (patternOne);
 		ptrndt [1] = patronController.GetRandomData (patternTwo);
 		Initialize (ptrndt [0]);
@@ -93,6 +95,13 @@ public class EnemyMovementBis : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (fireTimer > 0) {
+			fireTimer -= Time.deltaTime;
+			if (fireTimer <= 0) {
+				arsenal.FireGun ();
+			}
+		}
 
 		if (globalTimer > 0) {
 			globalTimer -= Time.deltaTime;

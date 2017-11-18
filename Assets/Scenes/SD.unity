@@ -216,12 +216,13 @@ MonoBehaviour:
   - {fileID: 1081621493729810, guid: 35f6f70f2f8933244b4e8a452ed902d5, type: 2}
   - {fileID: 1081621493729810, guid: faef2dbc29bd862498420529e999ec33, type: 2}
   - {fileID: 1081621493729810, guid: c697f49ec63eed6428c84a5dfccc2016, type: 2}
-  spawnCounts: 0200000002000000020000000200000002000000020000000200000002000000
+  spawnCounts: 0200000003000000040000000400000002000000030000000400000004000000
   target: {fileID: 376520513}
   enemyProjPool: {fileID: 348927716}
-  timerDelay: 0.5
+  gameFlow: {fileID: 340729096}
+  timerDelay: 1
   globalTimerDelay: 3
-  waveCount: 7
+  waveCount: 2
 --- !u!4 &112885502
 Transform:
   m_ObjectHideFlags: 0
@@ -656,6 +657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58831c06fbd0f1c4d9e1041ac05f1a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerDelay: 3
   health: {fileID: 376520517}
   boss: {fileID: 1336143706}
 --- !u!1001 &348927715
@@ -1026,7 +1028,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1953643730
+  randomSeed: 1749694926
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5531,11 +5533,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36366065143e5334f80ca20e84f95de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoPool: 100
-  reloadTime: 0
-  shotCooldown: 0
-  clip: 50
-  pellets: 7
+  ammoPool: 0
+  reloadTime: 3
+  shotCooldown: 1
+  clip: 2
+  pellets: 5
   spread: 3
 --- !u!114 &1986260181
 MonoBehaviour:
@@ -5549,9 +5551,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoPool: 100
-  reloadTime: 0
-  shotCooldown: 0
-  clip: 100
+  reloadTime: 1
+  shotCooldown: 0.1
+  clip: 7
   spreadReset: 3
   spread: 2
 --- !u!114 &1986260182
@@ -5565,10 +5567,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f338e3a493c36643b35e2b57c8a5c75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoPool: 200
-  reloadTime: 0
+  ammoPool: 0
+  reloadTime: 2
   shotCooldown: 0.05
-  clip: 200
+  clip: 30
   spreadReset: 3
   spread: 3
 --- !u!1 &2055293944

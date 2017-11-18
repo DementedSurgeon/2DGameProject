@@ -60,6 +60,9 @@ public class BossSpawner : MonoBehaviour {
 				if (counter == boss.Length) {
 					spawning = false;
 					doneSpawning = true;
+					for (int i = 0; i < boss.Length; i++) {
+						boss [i].gameObject.GetComponent<EnemyHealth> ().enabled = true;
+					}
 				}
 			}
 		}
