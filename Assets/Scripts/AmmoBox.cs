@@ -52,13 +52,13 @@ public class AmmoBox : MonoBehaviour {
 			} else if (ammoType == 1) {
 				for (int i = 0; i < arsenal.weaponry.Length; i++) {
 					if (arsenal.weaponry [i].GetName () == "Shotgun") {
-						arsenal.weaponry [i].ammoPool += 50;
+						arsenal.weaponry [i].ammoPool += arsenal.weaponry[i].GetClipMax() * 2;
 					}
 				}
 			} else if (ammoType == 2) {
 				for (int i = 0; i < arsenal.weaponry.Length; i++) {
 					if (arsenal.weaponry [i].GetName () == "MG") {
-						arsenal.weaponry [i].ammoPool += 50;
+						arsenal.weaponry [i].ammoPool += arsenal.weaponry[i].GetClipMax() * 2;
 					}
 				}
 			}
