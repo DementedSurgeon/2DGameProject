@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour {
 	public int[] spawnCounts;
 	public Transform target;
 	public ProjPool enemyProjPool;
+	public GameFlow gameFlow;
 
 	private float timer = 0;
 	public float timerDelay = 0.5f;
@@ -25,11 +26,14 @@ public class Spawner : MonoBehaviour {
 	private bool validatingWave = false;
 	public delegate void OnFinishSpawn();
 	public OnFinishSpawn FinishedSpawn;
+	private int ammoType = 0;
 
 
 	// Use this for initialization
 	void Start ()
 	{
+		gameFlow.StartSpawn += StartSpawning;
+
 		if (spawnCounts.Length % waveCount != 0) {
 			validatingWave = true;
 		}
@@ -67,10 +71,15 @@ public class Spawner : MonoBehaviour {
 			for (int i = 0 + temp; i < spawnCounts[s] + temp; i++) {
 				badDudes [i] = Instantiate (prefab [s], transform.position, Quaternion.identity, transform).GetComponent<EnemyMovementBis> ();
 				badDudes [i].GetComponentInChildren<EnemyLook> ().SetTarget (target);
-				badDudes [i].GetComponentInChildren<Arsenal> ().SetAmmoPool (enemyProjPool);
+				badDudes [i].GetComponentInChildren<EnemyArsenal> ().SetAmmoPool (enemyProjPool);
 				if (i == 0 + temp) {
 					if (badDudes [i].transform.GetChild (2) != null) {
 						badDudes [i].transform.GetChild (2).gameObject.SetActive (true);
+						badDudes [i].transform.GetChild (2).GetComponent<AmmoBox> ().SetAmmoType (ammoType);
+						ammoType++;
+						if (ammoType > 2) {
+							ammoType = 0;
+						}
 					}
 
 				}
@@ -150,6 +159,11 @@ public class Spawner : MonoBehaviour {
 
 			}
 		}
+	}
+
+	void StartSpawning()
+	{
+		spawning = true;
 	}
 }
 

@@ -8,7 +8,7 @@ public class AmmoBox : MonoBehaviour {
 	private SpriteRenderer sR;
 	private Rigidbody2D rb2D;
 	private Collider2D col2D;
-	private int ammoType = 1;
+	private int ammoType = 0;
 	public Sprite[] sprites;
 
 	// Use this for initialization
@@ -28,9 +28,9 @@ public class AmmoBox : MonoBehaviour {
 
 	void Spawn()
 	{
-		Debug.Log (sprites.Length);
+		Debug.Log (sprites.Length, gameObject);
 		sR.enabled = true;
-		sR.sprite = sprites [0];
+		sR.sprite = sprites [ammoType];
 		rb2D.simulated = true;
 		col2D.enabled = true;
 		transform.parent = null;
@@ -73,6 +73,11 @@ public class AmmoBox : MonoBehaviour {
 			rb2D.isKinematic = true;
 			rb2D.velocity = Vector2.zero;
 		}
+	}
+
+	public void SetAmmoType(int newAmmo)
+	{
+		ammoType = newAmmo;
 	}
 
 }
