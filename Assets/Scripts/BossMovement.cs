@@ -74,5 +74,10 @@ public class BossMovement : MonoBehaviour {
 		return activePattern;
 	}
 
-
+	void OnTriggerEnter2D (Collider2D col)
+	{
+		if (col.gameObject.tag == "Player") {
+			col.gameObject.GetComponent<Health> ().Hurt(transform.position.x);
+		}
+	}
 }
