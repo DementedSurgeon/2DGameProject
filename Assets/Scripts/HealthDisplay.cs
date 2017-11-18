@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AmmoDisplay : MonoBehaviour {
+public class HealthDisplay : MonoBehaviour {
 
-	public Gun gun;
-
+	public Health health;
 
 	private Text field;
 
 	// Use this for initialization
 	void Start () {
 		field = gameObject.GetComponent<Text> ();
-
 	}
 	
 	// Update is called once per frame
@@ -21,13 +19,10 @@ public class AmmoDisplay : MonoBehaviour {
 		DisplayData ();
 	}
 
-	public void GetGun(Gun newGun)
-	{
-		gun = newGun;
-	}
-
 	public void DisplayData ()
 	{
-		field.text = gun.GetMagSize ().ToString () + "/" + gun.GetMaxMagSize ().ToString () + " " + gun.GetName ();
+		field.text = "HP:" + health.health.ToString() + "/" + health.GetMaxHP ().ToString();
 	}
+
+
 }
