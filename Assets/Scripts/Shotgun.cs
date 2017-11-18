@@ -91,6 +91,11 @@ public class Shotgun : Gun {
 		return clip;
 	}
 
+	override public int GetClipMax()
+	{
+		return clipSize;
+	}
+
 	override public int GetMaxMagSize()
 	{
 		return ammoPool;

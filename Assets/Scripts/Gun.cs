@@ -21,6 +21,11 @@ public class Gun : MonoBehaviour{
 	{
 		return 0;//code
 	}
+
+	public virtual int GetClipMax()
+	{
+		return 0;
+	}
 	 
 	public virtual int GetMaxMagSize ()
 	{

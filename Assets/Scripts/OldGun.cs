@@ -2,6 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+Pantalla ayuda. Y instrucciones para jugar (recargar etc)
+Inbgrar artes para ultimos botones
+musica y sonido
+
+
+ * */
+
+
 public class OldGun : Gun  {
 
 	[Header("Ammo Pool")]

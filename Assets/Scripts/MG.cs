@@ -85,6 +85,11 @@ public class MG : Gun {
 		return clip;
 	}
 
+	override public int GetClipMax()
+	{
+		return clipSize;
+	}
+
 	override public int GetMaxMagSize()
 	{
 		return ammoPool;
