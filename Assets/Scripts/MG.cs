@@ -41,6 +41,14 @@ public class MG : Gun {
 		if (reloadTimer > 0)
 		{
 			reloadTimer -= Time.deltaTime;
+			if (reloadTimer <= 0) {
+				ammoPool = ammoPool - (clipSize - clip);
+				clip = clipSize;
+				if (ammoPool < 0) {
+					clip += ammoPool;
+					ammoPool = 0;
+				}
+			}
 		}
 
 	}
@@ -68,12 +76,7 @@ public class MG : Gun {
 	{
 		if (reloadTimer <= 0) {
 			reloadTimer = reloadTime;
-			ammoPool = ammoPool - (clipSize - clip);
-			clip = clipSize;
-			if (ammoPool < 0) {
-				clip += ammoPool;
-				ammoPool = 0;
-			}
+
 		}
 	}
 

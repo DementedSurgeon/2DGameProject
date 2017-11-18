@@ -26,6 +26,7 @@ public class Pistol : Gun {
 	private float reloadTimer = 0;
 	private int mode = 3;
 	private Transform startPos;
+	private int fakeAmmoPool = 00;
 
 	// Use this for initialization
 	void Start () {
@@ -42,6 +43,9 @@ public class Pistol : Gun {
 		if (reloadTimer > 0)
 		{
 			reloadTimer -= Time.deltaTime;
+			if (reloadTimer <= 0) {
+				clip = clipSize;
+				}
 		}
 
 
@@ -74,12 +78,7 @@ public class Pistol : Gun {
 	{
 		if (reloadTimer <= 0) {
 			reloadTimer = reloadTime;
-			ammoPool = ammoPool - (clipSize - clip);
-			clip = clipSize;
-			if (ammoPool < 0) {
-				clip += ammoPool;
-				ammoPool = 0;
-			}
+
 		}
 	}
 
@@ -90,7 +89,7 @@ public class Pistol : Gun {
 
 	override public int GetMaxMagSize()
 	{
-		return ammoPool;
+		return fakeAmmoPool;
 	}
 
 	override public void SetProjPool(ProjPool newPool)
