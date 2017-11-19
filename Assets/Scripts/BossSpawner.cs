@@ -23,10 +23,10 @@ public class BossSpawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		bossData = new BossPatternData[4];
-		bossData [0] = new BossPatternData (1 * speed, 1, 1, false);
-		bossData [1] = new BossPatternData (-1 * speed, -4, -4, true);
-		bossData [2] = new BossPatternData (1 * speed, 3, 3, false);
-		bossData [3] = new BossPatternData (-1 * speed, -4, -4, true);
+		bossData [0] = new BossPatternData (1 * speed, 3, 3, false, new Vector2(-10,-6));
+		bossData [1] = new BossPatternData (1 * speed, 4, 4, true, new Vector2(10,6));
+		bossData [2] = new BossPatternData (-1 * speed, 4, 4, false, new Vector2(10,6));
+		bossData [3] = new BossPatternData (-1 * speed, 5, 5, true, new Vector2(-10,-6));
 		boss = new BossMovement[bossLength];
 		for (int i = 0; i < boss.Length; i++) {
 			boss [i] = Instantiate (prefab, transform.position, Quaternion.identity, transform).GetComponent<BossMovement> ();
@@ -75,7 +75,11 @@ public class BossSpawner : MonoBehaviour {
 						if (c == i + 1) {
 							boss [c].gameObject.GetComponent<SpriteRenderer> ().color = Color.red;
 						}
-						boss[c].NextPattern(bossData[activePattern]);
+						if (checks [c] == true) {
+							c = boss.Length;
+						} else {
+							boss [c].NextPattern (bossData [activePattern]);
+						}
 					}
 					for (int v = 0; v < checks.Length; v++)
 					{
@@ -96,7 +100,7 @@ public class BossSpawner : MonoBehaviour {
 	void NextPattern()
 	{
 		activePattern++;
-		if (activePattern == 4) {
+		if (activePattern == bossData.Length) {
 			activePattern = 0;
 		}
 	}

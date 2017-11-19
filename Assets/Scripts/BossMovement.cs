@@ -10,13 +10,21 @@ public class BossMovement : MonoBehaviour {
 
 	bool horizontal;
 
+	Vector2 resetPoint;
+
 	private int reverser = 1;
 	private BossPatternData activePattern;
 	private BossPatternData futurePattern;
+	private SpriteRenderer sprt;
+	private Vector2 boundsMin;
+	private Vector2 boundsMax;
 
 	// Use this for initialization
 	void Start () {
 		UpdatePattern ();
+		sprt = gameObject.GetComponent<SpriteRenderer> ();
+		boundsMin = sprt.bounds.min;
+		boundsMax = sprt.bounds.max;
 	}
 	
 	// Update is called once per frame
@@ -26,12 +34,17 @@ public class BossMovement : MonoBehaviour {
 			Vector3 newStuff = new Vector3 (stuff * sinSpeed, transform.position.y, 0);
 			transform.position = newStuff;
 			transform.position += Vector3.up * speed * Time.deltaTime;
-			if ((Camera.main.WorldToViewportPoint (transform.position).y) <= 0) {
+			boundsMax = sprt.bounds.max;
+			boundsMin = sprt.bounds.min;
+			if ((Camera.main.WorldToViewportPoint (boundsMax).y) <= 0) {
+				Debug.Log (boundsMax);
 				reverser = reverser * -1;
 				transform.position = new Vector3 (transform.position.x, Camera.main.ViewportToWorldPoint (new Vector3 (0, 1, 0)).y, 0);
 				UpdatePattern ();
 
-			} else if ((Camera.main.WorldToViewportPoint (transform.position).y) >= 1) {
+			} else if ((Camera.main.WorldToViewportPoint (boundsMin).y) >= 1) {
+				
+				Debug.Log (boundsMin);
 				transform.position = new Vector3 (transform.position.x, Camera.main.ViewportToWorldPoint (new Vector3 (0, 0, 0)).y, 0);
 				reverser = reverser * -1;
 				UpdatePattern ();
@@ -41,12 +54,14 @@ public class BossMovement : MonoBehaviour {
 			Vector3 newStuff = new Vector3 (transform.position.x, stuff * sinSpeed, 0);
 			transform.position = newStuff;
 			transform.position += Vector3.left * speed * Time.deltaTime;
-			if ((Camera.main.WorldToViewportPoint (transform.position).x) <= 0) {
+			boundsMax = sprt.bounds.max;
+			boundsMin = sprt.bounds.min;
+			if ((Camera.main.WorldToViewportPoint (boundsMax).x) <= 0) {
 				reverser = reverser * -1;
 				transform.position = new Vector3 (Camera.main.ViewportToWorldPoint (new Vector3 (1, 0, 0)).x, transform.position.y, 0);
 				UpdatePattern ();
 
-			} else if ((Camera.main.WorldToViewportPoint (transform.position).x) >= 1) {
+			} else if ((Camera.main.WorldToViewportPoint (boundsMin).x) >= 1) {
 				transform.position = new Vector3 (Camera.main.ViewportToWorldPoint (new Vector3 (0, 0, 0)).x, transform.position.y, 0);
 				reverser = reverser * -1;
 				UpdatePattern ();
@@ -61,6 +76,8 @@ public class BossMovement : MonoBehaviour {
 		sinArc = activePattern.sinArc;
 		sinSpeed = activePattern.sinSpeed;
 		horizontal = activePattern.horizontal;
+		resetPoint = activePattern.resetPoint;
+		transform.position = new Vector3 (resetPoint.x, resetPoint.y, 0);
 	}
 
 
