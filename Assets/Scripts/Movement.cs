@@ -61,6 +61,11 @@ public class Movement : MonoBehaviour {
 				Instantiate (prs, transform.position, Quaternion.identity);
 				prs.Play();
 				transform.position += Vector3.left * dashDistance;
+				boundsMin = sprt.bounds.min;
+				boundsMin = Camera.main.WorldToViewportPoint (boundsMin);
+				if (boundsMin.x < 0) {
+						transform.position = new Vector3(Camera.main.ViewportToWorldPoint(new Vector3(0.01f,0,0)).x, transform.position.y, transform.position.z);
+				}
 				dashTimer = dashCooldown;
 				prtcl.Play ();
 			}
@@ -70,6 +75,11 @@ public class Movement : MonoBehaviour {
 				Instantiate (prs, transform.position, Quaternion.identity);
 				prs.Play();
 				transform.position += Vector3.right * dashDistance;
+				boundsMax = sprt.bounds.max;
+				boundsMax = Camera.main.WorldToViewportPoint (boundsMax);
+				if (boundsMax.x > 1) {
+					transform.position = new Vector3(Camera.main.ViewportToWorldPoint(new Vector3(0.99f,0,0)).x, transform.position.y, transform.position.z);
+				}
 				dashTimer = dashCooldown;
 				prtcl.Play ();
 			}
