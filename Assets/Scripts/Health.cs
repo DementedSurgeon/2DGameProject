@@ -33,9 +33,9 @@ public class Health : MonoBehaviour {
 	public void Hurt(float trs){
 		health--;
 		if (transform.position.x < trs) {
-			rgbd.AddForce (new Vector2(-50, 0));
+			rgbd.AddForce (new Vector2(-500, 0));
 		} else if (transform.position.x > trs) {
-			rgbd.AddForce (new Vector2(50, 0));
+			rgbd.AddForce (new Vector2(500, 0));
 		}
 	}
 
