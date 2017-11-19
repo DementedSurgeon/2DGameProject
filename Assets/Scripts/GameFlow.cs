@@ -7,6 +7,8 @@ public class GameFlow : MonoBehaviour {
 
 	private float timer;
 	public float timerDelay;
+	private float winTimer;
+	public float winTimerDelay;
 
 	public Health health;
 	public BossSpawner boss;
@@ -16,7 +18,7 @@ public class GameFlow : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		health.Death += GameLost;
-		boss.OnBossDead += GameWon;
+		boss.OnBossDead += StartWinTimer;
 		timer = timerDelay;
 	}
 	
@@ -32,6 +34,12 @@ public class GameFlow : MonoBehaviour {
 
 			}
 		}
+		if (winTimer > 0) {
+			winTimer -= Time.deltaTime;
+			if (winTimer <= 0) {
+				GameWon ();
+			}
+		}
 	}
 
 	void GameWon()
@@ -42,5 +50,10 @@ public class GameFlow : MonoBehaviour {
 	void GameLost()
 	{
 		SceneManager.LoadScene ("YouLose");
+	}
+
+	void StartWinTimer()
+	{
+		winTimer = winTimerDelay;
 	}
 }
