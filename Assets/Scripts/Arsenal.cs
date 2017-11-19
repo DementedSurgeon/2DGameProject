@@ -6,6 +6,7 @@ public class Arsenal : MonoBehaviour {
 	
 	public Gun[] weaponry;
 	public AmmoDisplay display;
+	public WeaponDisplay otherDisplay;
 	public ProjPool ammoPool;
 	public bool isEnemy = false;
 	public bool usesVector = false;
@@ -23,6 +24,10 @@ public class Arsenal : MonoBehaviour {
 		}
 		if (display != null) {
 			display.GetGun (weaponry [activeWeapon]);
+		}
+		if (otherDisplay != null)
+		{
+			otherDisplay.GetGun (weaponry[activeWeapon]);
 		}
 		timer = timerDelay;
 	}
@@ -64,12 +69,14 @@ public class Arsenal : MonoBehaviour {
 				activeWeapon = 0;
 				if (display != null) {
 					display.GetGun (weaponry [activeWeapon]);
+					otherDisplay.GetGun (weaponry [activeWeapon]);
 				}
 			} else if (Input.GetKeyDown (KeyCode.Alpha2)) {
 				if (weaponry [1] != null) {
 					activeWeapon = 1;
 					if (display != null) {
 						display.GetGun (weaponry [activeWeapon]);
+						otherDisplay.GetGun (weaponry [activeWeapon]);
 					}
 				} 
 					}
@@ -78,6 +85,7 @@ public class Arsenal : MonoBehaviour {
 					activeWeapon = 2;
 					if (display != null) {
 						display.GetGun (weaponry [activeWeapon]);
+						otherDisplay.GetGun (weaponry [activeWeapon]);
 					}
 				}
 			}
@@ -88,12 +96,14 @@ public class Arsenal : MonoBehaviour {
 					activeWeapon = weaponry.Length - 1;
 				}
 				display.GetGun (weaponry [activeWeapon]);
+				otherDisplay.GetGun (weaponry [activeWeapon]);
 			} else if (Input.GetKeyDown (KeyCode.E)) {
 				activeWeapon++;
 				if (activeWeapon == weaponry.Length) {
 					activeWeapon = 0;
 				}
 				display.GetGun (weaponry [activeWeapon]);
+				otherDisplay.GetGun (weaponry [activeWeapon]);
 			}
 				
 		}

@@ -37,6 +37,13 @@ public class ArsenalEditor : Editor {
 				if (EditorGUI.EndChangeCheck ()) {
 					serializedObject.ApplyModifiedProperties ();
 				}
+
+					SerializedProperty otherDisplay = serializedObject.FindProperty ("otherDisplay");
+					EditorGUI.BeginChangeCheck ();
+					EditorGUILayout.PropertyField (otherDisplay, true);
+					if (EditorGUI.EndChangeCheck ()) {
+						serializedObject.ApplyModifiedProperties ();
+					}
 			}
 			else if (group.visible == true) {
 				myScript.usesVector = EditorGUILayout.Toggle ("Uses Vector", myScript.usesVector);

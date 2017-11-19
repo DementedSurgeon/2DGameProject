@@ -86,6 +86,16 @@ public class Shotgun : Gun {
 		}
 	}
 
+	override public bool GetReloadStatus()
+	{
+		bool temp = false;
+		if (reloadTimer > 0) {
+			temp = true;
+		}
+
+		return temp;
+	}
+
 	override public int GetMagSize()
 	{
 		return clip;
@@ -96,9 +106,9 @@ public class Shotgun : Gun {
 		return clipSize;
 	}
 
-	override public int GetMaxMagSize()
+	override public string GetMaxMagSize()
 	{
-		return ammoPool;
+		return ammoPool.ToString();
 	}
 
 	override public void SetProjPool(ProjPool newPool)

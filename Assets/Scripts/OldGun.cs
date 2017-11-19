@@ -175,7 +175,7 @@ public class OldGun : Gun  {
 		return magazineSize;
 	}
 
-	override public int GetMaxMagSize()
+	override public string GetMaxMagSize()
 	{
 		int maxMagazineSize = 0;
 		if (mode == 1) {
@@ -185,7 +185,7 @@ public class OldGun : Gun  {
 		} else if (mode == 3) {
 			maxMagazineSize = shotgunAmmoPool;
 		}
-		return maxMagazineSize;
+		return maxMagazineSize.ToString();
 	}
 
 	override public void SetProjPool(ProjPool newPool)

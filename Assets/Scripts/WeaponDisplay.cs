@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AmmoDisplay : MonoBehaviour {
+public class WeaponDisplay : MonoBehaviour {
 
 	public Gun gun;
-
 
 	private Text field;
 
@@ -15,7 +14,7 @@ public class AmmoDisplay : MonoBehaviour {
 		field = gameObject.GetComponent<Text> ();
 
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		DisplayData ();
@@ -28,6 +27,11 @@ public class AmmoDisplay : MonoBehaviour {
 
 	public void DisplayData ()
 	{
-		field.text = gun.GetMagSize ().ToString () + "/" + gun.GetMaxMagSize ().ToString ();
+		if (!gun.GetReloadStatus ()) {
+			field.text = gun.GetName ();
+		}
+		else {
+			field.text = gun.GetName () + " Reloading";
+		}
 	}
 }

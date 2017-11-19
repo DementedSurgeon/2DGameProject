@@ -16,6 +16,10 @@ public class Gun : MonoBehaviour{
 		//code
 	}
 
+	public virtual bool GetReloadStatus()
+	{
+		return true;
+	}
 
 	public virtual int GetMagSize ()
 	{
@@ -27,9 +31,9 @@ public class Gun : MonoBehaviour{
 		return 0;
 	}
 	 
-	public virtual int GetMaxMagSize ()
+	public virtual string GetMaxMagSize ()
 	{
-		return 0;//code
+		return "a";//code
 	}
 
 

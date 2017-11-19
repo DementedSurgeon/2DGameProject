@@ -26,7 +26,7 @@ public class Pistol : Gun {
 	private float reloadTimer = 0;
 	private int mode = 3;
 	private Transform startPos;
-	private int fakeAmmoPool = 00;
+	private string fakeAmmoPool = "Infinite";
 
 	// Use this for initialization
 	void Start () {
@@ -82,12 +82,22 @@ public class Pistol : Gun {
 		}
 	}
 
+	override public bool GetReloadStatus()
+	{
+		bool temp = false;
+		if (reloadTimer > 0) {
+			temp = true;
+		}
+
+		return temp;
+	}
+
 	override public int GetMagSize()
 	{
 		return clip;
 	}
 
-	override public int GetMaxMagSize()
+	override public string GetMaxMagSize()
 	{
 		return fakeAmmoPool;
 	}
