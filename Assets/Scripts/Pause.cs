@@ -28,6 +28,7 @@ public class Pause : MonoBehaviour {
 		mainMenu = canvas.transform.Find ("MainMenu").GetComponent<Button>();
 		resume.onClick.AddListener (PauseUnpause);
 		mainMenu.onClick.AddListener (delegate() {
+			PauseUnpause();
 			SceneManager.LoadScene ("TitleScreen");
 		}
 			);

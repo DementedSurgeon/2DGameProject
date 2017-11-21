@@ -1047,7 +1047,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2139977798
+  randomSeed: -1883493786
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -6113,7 +6113,7 @@ MonoBehaviour:
   ammoPool: 0
   reloadTime: 2
   shotCooldown: 0.05
-  clip: 6000
+  clip: 60
   spreadReset: 3
   spread: 3
 --- !u!1 &2055293944
