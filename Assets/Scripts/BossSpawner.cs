@@ -18,6 +18,7 @@ public class BossSpawner : MonoBehaviour {
 	private bool doneSpawning = false;
 	public TrainManager tMan;
 	public delegate void MyDelegate();
+	public MyDelegate OnDoneSpawning;
 	public MyDelegate OnBossDead;
 
 	// Use this for initialization
@@ -62,6 +63,10 @@ public class BossSpawner : MonoBehaviour {
 					doneSpawning = true;
 					for (int i = 0; i < boss.Length; i++) {
 						boss [i].gameObject.GetComponent<EnemyHealth> ().enabled = true;
+					}
+					if (OnDoneSpawning != null) {
+						OnDoneSpawning ();
+
 					}
 				}
 			}

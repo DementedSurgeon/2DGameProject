@@ -100,6 +100,7 @@ public class Spawner : MonoBehaviour {
 			if (FinishedSpawn != null) {
 				FinishedSpawn ();
 				Debug.Log ("Works!");
+				gameObject.SetActive (false);
 			}
 		}
 		
@@ -131,6 +132,7 @@ public class Spawner : MonoBehaviour {
 				globalTimer = globalTimerDelay;
 		}
 		if (spawning) {
+			
 			if (globalTimer <= 0) {
 				if (timer <= 0) {
 					
@@ -148,6 +150,7 @@ public class Spawner : MonoBehaviour {
 
 						if (currentWave == 0) {
 							spawning = false;
+
 						}
 					}
 
@@ -155,7 +158,7 @@ public class Spawner : MonoBehaviour {
 
 				}
 					
-				
+
 
 			}
 		}

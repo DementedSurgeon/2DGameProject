@@ -28,7 +28,6 @@ public class AmmoBox : MonoBehaviour {
 
 	void Spawn()
 	{
-		Debug.Log (sprites.Length, gameObject);
 		sR.enabled = true;
 		sR.sprite = sprites [ammoType];
 		rb2D.simulated = true;

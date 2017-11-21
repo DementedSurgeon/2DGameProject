@@ -44,8 +44,7 @@ public class EnemyHealth : MonoBehaviour {
 		if (prs != null) {
 			Instantiate (prs, transform.position, Quaternion.identity);
 			prs.Play ();
-			Debug.Log ("works");
-		}
+			}
 		gameObject.SetActive (false);
 		Spawner.yeNewSpawneThinge--;
 	}
