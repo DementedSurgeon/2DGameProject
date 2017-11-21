@@ -8,6 +8,7 @@ public class ButtonManagement2 : MonoBehaviour {
 
 	public Button startButton;
 	public Button quitButton;
+	public Button retryButton;
 
 	// Use this for initialization
 	void Start () {
@@ -15,6 +16,11 @@ public class ButtonManagement2 : MonoBehaviour {
 			SceneManager.LoadScene("TitleScreen");
 		});
 		quitButton.onClick.AddListener(Application.Quit);
+		if (retryButton != null) {
+			retryButton.onClick.AddListener (delegate() {
+				SceneManager.LoadScene ("SD");
+			});
+		}
 	}
 
 	// Update is called once per frame

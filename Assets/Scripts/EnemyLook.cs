@@ -27,15 +27,19 @@ public class EnemyLook : MonoBehaviour {
 		dirr = transform.position;
 		transform.right = dir - dirr;
 		//		
-		if (dir.x < dirr.x) {
-			SR.flipY = true;
-			prtSR.flipX = true;
-			//chldSR.flipY = true;
-		}
-		else if (dir.x > dirr.x) {
-			SR.flipY = false;
-			prtSR.flipX = false;
-			//chldSR.flipX = false;
+		if (Camera.main.WorldToViewportPoint (transform.position).x < 0 
+			|| Camera.main.WorldToViewportPoint (transform.position).x > 1 
+			|| Camera.main.WorldToViewportPoint (transform.position).y < 0 
+			|| Camera.main.WorldToViewportPoint (transform.position).y > 1) {
+			if (dir.x < dirr.x) {
+				SR.flipY = true;
+				prtSR.flipX = true;
+				//chldSR.flipY = true;
+			} else if (dir.x > dirr.x) {
+				SR.flipY = false;
+				prtSR.flipX = false;
+				//chldSR.flipX = false;
+			}
 		}
 
 	}
