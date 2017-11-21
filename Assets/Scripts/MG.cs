@@ -60,6 +60,8 @@ public class MG : Gun {
 				if (clip > 0) {
 					magazine.Find (mode, startPos, spread, spreadReset);
 					clip--;
+				} else if (clip == 0) {
+					Reload ();
 				}
 				cooldownTimer = shotCooldown;
 			}
@@ -74,7 +76,7 @@ public class MG : Gun {
 
 	override public void Reload()
 	{
-		if (reloadTimer <= 0) {
+		if (reloadTimer <= 0 && ammoPool > 0) {
 			reloadTimer = reloadTime;
 
 		}

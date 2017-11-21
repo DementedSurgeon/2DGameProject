@@ -64,6 +64,8 @@ public class Shotgun : Gun {
 					}
 					clip--;
 					cooldownTimer = shotCooldown;
+				} else if (clip == 0) {
+					Reload ();
 				}
 			}
 		} else if (isEnemy) {
@@ -80,7 +82,7 @@ public class Shotgun : Gun {
 
 	override public void Reload()
 	{
-		if (reloadTimer <= 0) {
+		if (reloadTimer <= 0 && ammoPool > 0) {
 			reloadTimer = reloadTime;
 
 		}
