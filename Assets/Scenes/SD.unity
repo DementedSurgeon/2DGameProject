@@ -934,7 +934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1772c4abbf54b479f1ff81f3257963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 1000
   prs: {fileID: 0}
 --- !u!199 &376520518
 ParticleSystemRenderer:
@@ -1047,7 +1047,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1883493786
+  randomSeed: 1079117820
   InitialModule:
     serializedVersion: 3
     enabled: 1

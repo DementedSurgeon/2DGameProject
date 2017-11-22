@@ -18,6 +18,7 @@ public class Movement : MonoBehaviour {
 	private ParticleSystem prtcl;
 	private Vector2 boundsMin;
 	private Vector2 boundsMax;
+	private float dashFlashTimer;
 
 	// Use this for initialization
 	void Start () {
@@ -30,9 +31,27 @@ public class Movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
+		if (dashFlashTimer > 0) {
+			dashFlashTimer -= Time.deltaTime;
+			if (dashFlashTimer <= 0) {
+				transform.GetChild (0).GetComponent<SpriteRenderer> ().color = Color.white;
+				transform.GetChild (1).GetComponent<SpriteRenderer> ().color = Color.white;
+				sprt.color = Color.white;
+			}
+		}
+
 		if (dashTimer > 0) {
 			dashTimer -= Time.deltaTime;
+			if (dashTimer <= 0) {
+				sprt.color = Color.blue;
+				transform.GetChild (0).GetComponent<SpriteRenderer> ().color = Color.blue;
+				transform.GetChild (1).GetComponent<SpriteRenderer> ().color = Color.blue;
+				dashFlashTimer = Time.deltaTime*5;
+			}
 		}
+
+
 
 		boundsMin = sprt.bounds.min;
 		boundsMax = sprt.bounds.max;

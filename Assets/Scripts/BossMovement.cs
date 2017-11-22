@@ -18,6 +18,8 @@ public class BossMovement : MonoBehaviour {
 	private SpriteRenderer sprt;
 	private Vector2 boundsMin;
 	private Vector2 boundsMax;
+	private BossSpawner bossSpawner;
+	private bool damaging;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +27,8 @@ public class BossMovement : MonoBehaviour {
 		sprt = gameObject.GetComponent<SpriteRenderer> ();
 		boundsMin = sprt.bounds.min;
 		boundsMax = sprt.bounds.max;
+		bossSpawner = transform.GetComponentInParent<BossSpawner> ();
+		bossSpawner.OnDoneSpawning += StartDamaging;
 	}
 	
 	// Update is called once per frame
@@ -91,10 +95,17 @@ public class BossMovement : MonoBehaviour {
 		return activePattern;
 	}
 
+	void StartDamaging()
+	{
+		damaging = true;
+	}
+
 	void OnTriggerEnter2D (Collider2D col)
 	{
-		if (col.gameObject.tag == "Player") {
-			col.gameObject.GetComponent<Health> ().Hurt(transform.position.x);
+		if (damaging) {
+			if (col.gameObject.tag == "Player") {
+				col.gameObject.GetComponent<Health> ().Hurt (transform.position.x);
+			}
 		}
 	}
 }
