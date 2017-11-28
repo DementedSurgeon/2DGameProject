@@ -34,6 +34,7 @@ public class EnemyMovementBis : MonoBehaviour {
 	private PatronData[] ptrndt = new PatronData[2];
 	private PatronController patronController;
 	private EnemyArsenal arsenal;
+	private EnemySounds eSounds;
 
 	private SpriteRenderer sprt;
 
@@ -89,6 +90,7 @@ public class EnemyMovementBis : MonoBehaviour {
 
 
 		sprt = gameObject.GetComponent<SpriteRenderer> ();
+		eSounds = gameObject.GetComponent<EnemySounds> ();
 
 	}
 
@@ -100,6 +102,7 @@ public class EnemyMovementBis : MonoBehaviour {
 			fireTimer -= Time.deltaTime;
 			if (fireTimer <= 0) {
 				arsenal.FireGun ();
+				eSounds.Play (0);
 			}
 		}
 

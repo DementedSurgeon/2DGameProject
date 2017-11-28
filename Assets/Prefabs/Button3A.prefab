@@ -113,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   prs: {fileID: 198997622530670998, guid: b24ceb31690d5d2428ec5502cbc2f94c, type: 2}
+  dSounds: {fileID: 114951911407829040, guid: e9be3bb4c7ad4eb4c897c3e934240f41, type: 2}
 --- !u!212 &212199178792729140
 SpriteRenderer:
   m_ObjectHideFlags: 1

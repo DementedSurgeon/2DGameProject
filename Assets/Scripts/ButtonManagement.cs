@@ -14,18 +14,27 @@ public class ButtonManagement : MonoBehaviour {
 	private Button backButton;
 	private GameObject menu;
 	private GameObject help;
+	private PlayerSounds pSounds;
 
 	// Use this for initialization
 	void Start () {
+		pSounds = gameObject.GetComponent<PlayerSounds> ();
 		menu = canvas.transform.Find ("Menu").gameObject;
 		help = canvas.transform.Find ("Help").gameObject;
 		backButton = help.transform.Find ("Back").GetComponent<Button> ();
 		startButton.onClick.AddListener(delegate() {
 			SceneManager.LoadScene("SD");
+			pSounds.Play(0);
 		});
-		helpButton.onClick.AddListener (OpenHelp);
+		helpButton.onClick.AddListener (delegate() {
+			OpenHelp();
+			pSounds.Play(0);
+		});
 		quitButton.onClick.AddListener(Application.Quit);
-		backButton.onClick.AddListener (CloseHelp);
+		backButton.onClick.AddListener (delegate {
+			CloseHelp();
+			pSounds.Play(0);
+		});
 	}
 	
 	// Update is called once per frame

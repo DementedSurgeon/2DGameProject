@@ -19,12 +19,14 @@ public class Movement : MonoBehaviour {
 	private Vector2 boundsMin;
 	private Vector2 boundsMax;
 	private float dashFlashTimer;
+	private PlayerSounds pSounds;
 
 	// Use this for initialization
 	void Start () {
 		rb2d = gameObject.GetComponent<Rigidbody2D> ();
 		sprt = gameObject.GetComponent<SpriteRenderer> ();
 		prtcl = gameObject.GetComponent<ParticleSystem> ();
+		pSounds = gameObject.GetComponent<PlayerSounds> ();
 		maxJumpCount = jumpCount;
 
 	}
@@ -87,6 +89,7 @@ public class Movement : MonoBehaviour {
 				}
 				dashTimer = dashCooldown;
 				prtcl.Play ();
+				pSounds.Play (0);
 			}
 		}
 		if (Input.GetKey (KeyCode.D) && Input.GetKeyDown (KeyCode.LeftShift)) {
@@ -101,6 +104,7 @@ public class Movement : MonoBehaviour {
 				}
 				dashTimer = dashCooldown;
 				prtcl.Play ();
+				pSounds.Play (0);
 			}
 		}
 	}

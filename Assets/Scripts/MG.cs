@@ -25,11 +25,15 @@ public class MG : Gun {
 	private float reloadTimer = 0;
 	private int mode = 3;
 	private Transform startPos;
+	private GunSounds gSounds;
 
 	// Use this for initialization
 	void Start () {
 		clipSize = clip;
 		startPos = transform.GetChild(0).GetComponent<Transform> ();
+		if (gameObject.GetComponent<GunSounds> () != null) {
+			gSounds = gameObject.GetComponent<GunSounds> ();
+		}
 		//magazine.SetGun (this);
 	}
 
@@ -60,10 +64,12 @@ public class MG : Gun {
 				if (clip > 0) {
 					magazine.Find (mode, startPos, spread, spreadReset);
 					clip--;
+					gSounds.Play (0);
 				} else if (clip == 0) {
 					Reload ();
 				}
 				cooldownTimer = shotCooldown;
+
 			}
 		} else if (isEnemy) {
 			if (clip > 0) {

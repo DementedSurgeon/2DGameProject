@@ -8,7 +8,9 @@ public class Health : MonoBehaviour {
 	private int maxHealth;
 
 	private Rigidbody2D rgbd;
+	private PlayerSounds pSounds;
 	public ParticleSystem prs;
+	public DisposeSounds dSounds;
 
 	public delegate void OnDeath ();
 	public OnDeath Death;
@@ -17,6 +19,7 @@ public class Health : MonoBehaviour {
 	void Start () {
 		maxHealth = health;
 		rgbd = gameObject.GetComponent<Rigidbody2D> ();
+		pSounds = gameObject.GetComponent<PlayerSounds> ();
 		Death += Dies;
 	}
 	
@@ -46,7 +49,12 @@ public class Health : MonoBehaviour {
 			prs.Play ();
 			Debug.Log ("works");
 		}
+		if (dSounds != null) {
+			Instantiate (dSounds, transform.position, Quaternion.identity);
+			dSounds.gameObject.GetComponent<EnemySounds>().Play(0);
+		}
 		gameObject.SetActive (false);
+		pSounds.Play (1);
 	}
 
 	public int GetMaxHP ()

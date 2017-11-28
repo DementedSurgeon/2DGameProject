@@ -9,6 +9,7 @@ public class EnemyHealth : MonoBehaviour {
 
 	private Rigidbody2D rgbd;
 	public ParticleSystem prs;
+	public DisposeSounds dSounds;
 
 	public delegate void OnDeath ();
 	public OnDeath Death;
@@ -44,9 +45,15 @@ public class EnemyHealth : MonoBehaviour {
 		if (prs != null) {
 			Instantiate (prs, transform.position, Quaternion.identity);
 			prs.Play ();
+
 			}
+		if (dSounds != null) {
+			Instantiate (dSounds, transform.position, Quaternion.identity);
+
+		}
 		gameObject.SetActive (false);
 		Spawner.yeNewSpawneThinge--;
+
 	}
 
 	public int GetMaxHP ()
